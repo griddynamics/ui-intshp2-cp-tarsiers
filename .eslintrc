@@ -12,10 +12,17 @@
   "rules": {
     "class-methods-use-this": ["off"],
     "comma-dangle": ["error", "never"],
-    "jsx-a11y/anchor-is-valid": ["error", {
-      "components": ["Link"],
-      "specialLink": ["to"]
-    }],
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": ["Link"],
+        "specialLink": ["to"]
+      }
+    ],
+    "no-plusplus": 0,
+    "no-param-reassign": 0,
+    "react/prop-types": 0,
+    "no-console": 1,
     "max-len": ["error", { "code": 120 }],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
   }
