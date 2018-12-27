@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 class HttpService {
   constructor() {
@@ -10,29 +10,29 @@ class HttpService {
   get(url, options) {
     axios
       .get(url, options)
-      .then(response => response.data)
-      .catch(error => Promise.reject(error));
+      .then((response) => response.data)
+      .catch((error) => Promise.reject(error));
   }
 
   post(url, data, options) {
     return axios
       .post(url, data, options)
-      .then(response => response.data)
-      .catch(error => Promise.reject(error));
+      .then((response) => response.data)
+      .catch((error) => Promise.reject(error));
   }
 
   put(url, data, options) {
     axios
       .put(url, data, options)
-      .then(response => response.data)
-      .catch(error => Promise.reject(error));
+      .then((response) => response.data)
+      .catch((error) => Promise.reject(error));
   }
 
   delete(url, options) {
     axios
       .delete(url, options)
-      .then(response => response.data)
-      .catch(error => Promise.reject(error));
+      .then((response) => response.data)
+      .catch((error) => Promise.reject(error));
   }
 
   create(options) {

@@ -1,6 +1,6 @@
-import React from "react";
-import logo from "../assets/logo.svg";
-import "./App.scss";
+import React from 'react';
+import logo from '../assets/logo.svg';
+import './App.scss';
 
 const App = () => (
   <div className="App">

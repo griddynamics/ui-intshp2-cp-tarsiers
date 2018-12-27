@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-export default props => {
+export default (props) => {
   const { counter } = props;
   return <div className="Counter">{counter}</div>;
 };
