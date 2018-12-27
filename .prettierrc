@@ -3,5 +3,5 @@
 	"useTabs": false,
 	"tabWidth": 2,
 	"singleQuote": true,
-	"arrowParens": "always"
+	"arrowParens": "avoid"
 }
