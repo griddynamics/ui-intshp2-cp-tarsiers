@@ -1,14 +1,37 @@
+@import './fonts';
+@import './variables';
+@import './grid';
+
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  font-family: 'HarmoniaSansProCyr-regular';
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.flx {
+  display: flex;
 }
+
+header {
+  height: 180px;
+  width: 100%;
+  background-color:$white-clr;
+}
+
+.content {
+  height: 500px;
+  width: 100%;
+  background-color:$grey-clr;
+}
+
+footer {
+height: 400px;
+width: 100%;
+background-color:$white-clr;
+}
+
+.jc-center {
+  justify-content: center;
+}
+

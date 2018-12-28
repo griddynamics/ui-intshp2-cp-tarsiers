@@ -1,14 +1,41 @@
-import React from 'react';
-import logo from '../assets/logo.svg';
-import './App.scss';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, HashRouter } from 'react-router-dom';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import Content from './components/Content/Content';
+import '../styles/index.scss';
 
-const App = () => (
-  <div className="App">
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>Tarsiers</p>
-    </header>
-  </div>
-);
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      headerAndFooterVisible: true
+    };
+  }
+
+  toggleHeaderAndFooterVisibility = () => {
+    const { headerAndFooterVisible } = this.state;
+    this.setState({
+      headerAndFooterVisible: !headerAndFooterVisible
+    });
+  };
+
+  render() {
+    const { headerAndFooterVisible } = this.state;
+    return (
+      <Router>
+        <div>
+          <HashRouter>
+            <div>
+              <Header visible={headerAndFooterVisible} />
+              <Content className="content" toggleHeaderAndFooterVisibility={this.toggleHeaderAndFooterVisibility} />
+              <Footer visible={headerAndFooterVisible} />
+            </div>
+          </HashRouter>
+        </div>
+      </Router>
+    );
+  }
+}
 
 export default App;
