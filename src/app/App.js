@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, HashRouter } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Content from "./components/Content/Content";
@@ -24,9 +24,13 @@ class App extends Component {
     return (
       <Router>
         <div>
+        <HashRouter>
+          <div>
           <Header visible={this.state.headerAndFooterVisible} />
             <Content className = "content" toggleHeaderAndFooterVisibility={this.toggleHeaderAndFooterVisibility} />
           <Footer visible={this.state.headerAndFooterVisible} />
+          </div>
+        </HashRouter>
         </div>
       </Router>
     );
