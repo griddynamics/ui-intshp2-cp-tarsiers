@@ -1,17 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import { Route, Switch } from "react-router-dom";
 import ProductListPage from "../components/ProductListPage/ProductListPage"
 import ProductDetailsPage from "../components/ProductDetailsPage/ProductDetailsPage"
 import HomePage from "../components/HomePage/HomePage"
 import My404Component from "../components/404Component/404Component"
 
-class RouteSchema extends Component {
-  constructor(props){
-    super(props);
-  }
-  render() {
+const RouteSchema = (props) => {
     return (
-      <div>
+      <div className="flx jc-center">
         <Switch>
           <Route exact path="/products" component={ ProductListPage } />
           <Route exact path="/" component={ HomePage } />
@@ -19,12 +15,11 @@ class RouteSchema extends Component {
           <Route
             path="*"
             exact={true}
-            render={() => <My404Component toggleHeaderAndFooterVisibility={this.props.toggleHeaderAndFooterVisibility } />}
+            render={() => <My404Component toggleHeaderAndFooterVisibility={props.toggleHeaderAndFooterVisibility } />}
           />
         </Switch>
       </div>
     );
-  }
 }
 
 export default RouteSchema;

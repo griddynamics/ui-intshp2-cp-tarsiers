@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Content from "./components/Content/Content";
+import "../styles/index.scss";
 
 class App extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class App extends Component {
       <Router>
         <div>
           <Header visible={this.state.headerAndFooterVisible} />
-            <Content toggleHeaderAndFooterVisibility={this.toggleHeaderAndFooterVisibility} />
+            <Content className = "content" toggleHeaderAndFooterVisibility={this.toggleHeaderAndFooterVisibility} />
           <Footer visible={this.state.headerAndFooterVisible} />
         </div>
       </Router>

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 class My404Component extends Component {
   constructor(props){
-    super(props)
+    super(props); 
   }
 
     componentWillMount() {
