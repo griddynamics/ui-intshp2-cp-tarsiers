@@ -36,8 +36,8 @@ class HttpService {
   }
 
   create(options) {
-    axios.create(options);
+    return axios.create(options);
   }
 }
-
-export default HttpService;
+// test comment
+export default new HttpService();
