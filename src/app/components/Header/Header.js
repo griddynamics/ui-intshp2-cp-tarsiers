@@ -15,10 +15,8 @@ const Header = props => {
           <i className="fas fa-book">
             <span>453 - 5553 - 996</span>
           </i>
-          <i className="fab fa-facebook-f">
-            <span>453 - 5553 - 996</span>
-          </i>
           <div className="icons-right">
+            <i className="fab fa-facebook-f" />
             <i className="fab fa-twitter" />
             <i className="fab fa-google-plus" />
             <i className="fab fa-instagram" />

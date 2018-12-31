@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import logo from '../../../assets/logo.png';
 
 const Footer = props => {
@@ -13,34 +15,34 @@ const Footer = props => {
         <div className="footer__links col-7">
           <ul>
             <li>
-              <a href="/" className="active">
+              <Link to="/" className="active">
                 about us
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/">contact us</a>
+              <Link to="/">contact us</Link>
             </li>
             <li>
-              <a href="/">support</a>
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <a href="/">our feed</a>
-            </li>
-            <li>
-              <a href="/">terms and conditions</a>
-            </li>
-            <li>
-              <a href="/">our privacy</a>
+              <Link to="/">support</Link>
             </li>
           </ul>
           <ul>
             <li>
-              <a href="/">join us</a>
+              <Link to="/">our feed</Link>
             </li>
             <li>
-              <a href="/">live support</a>
+              <Link to="/">terms and conditions</Link>
+            </li>
+            <li>
+              <Link to="/">our privacy</Link>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <Link to="/">join us</Link>
+            </li>
+            <li>
+              <Link to="/">live support</Link>
             </li>
           </ul>
         </div>

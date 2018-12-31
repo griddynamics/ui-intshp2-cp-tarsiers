@@ -1,11 +1,12 @@
 @import './fonts';
 @import './variables';
-
 @import './mixin';
-@import './base';
 
+@import './base';
 @import './utility';
 @import './grid';
 
-@import './header';
-@import './footer';
+// Components
+@import './components/header';
+@import './components/footer';
+@import './components/main';
