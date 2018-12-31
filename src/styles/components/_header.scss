@@ -1,0 +1,36 @@
+.header {
+  width: 100%;
+  padding-bottom: 62px;
+  background-color: $color-white;
+
+  &-top {
+    padding: 10px;
+    @include d-flex();
+
+    span {
+      padding-left: 5px;
+    }
+  }
+
+  &-main {
+    padding-top: 50px;
+    @include d-flex();
+  }
+
+  &-links {
+    margin-right: auto;
+
+    & > li {
+      display: inline;
+      padding: 0 5px;
+    }
+  }
+
+  .icons-right i {
+    padding: 0 10px;
+  }
+
+  .navbar {
+    @include d-flex();
+  }
+}

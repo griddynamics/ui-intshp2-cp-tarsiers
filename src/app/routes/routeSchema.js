@@ -6,7 +6,7 @@ import HomePage from '../components/HomePage/HomePage';
 import My404Component from '../components/404Component/404Component';
 
 const RouteSchema = props => (
-  <div className="flx jc-center">
+  <main className="main">
     <Switch>
       <Route exact path="/products" component={ProductListPage} />
       <Route exact path="/" component={HomePage} />
@@ -17,7 +17,7 @@ const RouteSchema = props => (
         render={() => <My404Component toggleHeaderAndFooterVisibility={props.toggleHeaderAndFooterVisibility} />}
       />
     </Switch>
-  </div>
+  </main>
 );
 
 export default RouteSchema;
