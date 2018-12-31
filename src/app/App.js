@@ -1,21 +1,39 @@
-/* eslint-disable no-useless-constructor */
-/* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
+import { BrowserRouter as Router, HashRouter } from 'react-router-dom';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import Content from './components/Content/Content';
+import '../styles/index.scss';
 
-import './App.scss';
-
-export default class App extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      headerAndFooterVisible: true
+    };
   }
 
+  toggleHeaderAndFooterVisibility = () => {
+    const { headerAndFooterVisible } = this.state;
+    this.setState({
+      headerAndFooterVisible: !headerAndFooterVisible
+    });
+  };
+
   render() {
+    const { headerAndFooterVisible } = this.state;
     return (
-      <div className="App">
-        <header className="App-header">
-          <p>Tarsiers</p>
-        </header>
-      </div>
+      <Router>
+        <div>
+          <HashRouter>
+            <div>
+              <Header visible={headerAndFooterVisible} />
+              <Content className="content" toggleHeaderAndFooterVisibility={this.toggleHeaderAndFooterVisibility} />
+              <Footer visible={headerAndFooterVisible} />
+            </div>
+          </HashRouter>
+        </div>
+      </Router>
     );
   }
 }
