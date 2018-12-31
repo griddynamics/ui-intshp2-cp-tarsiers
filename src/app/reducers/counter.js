@@ -9,12 +9,12 @@ export default (state = initialState, action) => {
     case ADD_TO_CART:
       return {
         ...state,
-        value: ++state.value
+        value: state.value + 1
       };
     case REMOVE_FROM_CART:
       return {
         ...state,
-        value: state.value ? --state.value : 0
+        value: state.value ? state.value + 1 : 0
       };
     default:
       return state;

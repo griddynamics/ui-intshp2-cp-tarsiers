@@ -4,7 +4,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/runtime": "^7.2.0",
     "axios": "^0.18.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "enzyme-adapter-react-16": "^1.7.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",
@@ -16,10 +19,13 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
+    "tdd": "jest --watch",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
     "prettier": "prettier --write \"src/**/*.js\""
   },
   "eslintConfig": {
@@ -32,25 +38,47 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^23.6.0",
+    "enzyme": "^3.8.0",
     "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.3.0",
     "gh-pages": "^2.0.1",
+    "husky": "^1.2.1",
+    "jest-css-modules-transform": "^2.1.1",
+    "lint-staged": "^8.1.0",
     "node-sass": "^4.11.0",
     "prettier": "1.15.3",
     "react-devtools": "^3.4.3",
-    "husky": "^1.2.1",
-    "lint-staged": "^8.1.0"
+    "regenerator-runtime": "^0.13.1"
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "npm test"
+      "pre-push": "npm run lint && npm run test --no-watch"
     }
   },
   "lint-staged": {
     "*.{js,json,css,scss,md}": [
       "prettier --write",
-      "eslint --fix",
       "git add"
+    ]
+  },
+  "jest": {
+    "setupFiles": [
+      "./setupTest.js"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      ".+\\.(css|styl|less|sass|scss)$": "jest-css-modules-transform"
+    },
+    "transformIgnorePatterns": [
+      "./node_modules/"
+    ],
+    "moduleFileExtensions": [
+      "js"
     ]
   }
 }

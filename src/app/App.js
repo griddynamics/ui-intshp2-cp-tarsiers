@@ -1,14 +1,21 @@
-import React from 'react';
-import logo from '../assets/logo.svg';
+/* eslint-disable no-useless-constructor */
+/* eslint-disable react/prefer-stateless-function */
+import React, { Component } from 'react';
+
 import './App.scss';
 
-const App = () => (
-  <div className="App">
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>Tarsiers</p>
-    </header>
-  </div>
-);
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-export default App;
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <p>Tarsiers</p>
+        </header>
+      </div>
+    );
+  }
+}
