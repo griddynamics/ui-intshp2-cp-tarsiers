@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, HashRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Content from './components/Content/Content';
@@ -19,4 +20,6 @@ const App = () => (
   </Router>
 );
 
-export default App;
+const mapStateToProps = state => ({ ...state });
+
+export default connect(mapStateToProps)(App);
