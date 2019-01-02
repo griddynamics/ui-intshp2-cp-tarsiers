@@ -1,0 +1,113 @@
+.joinus {
+  width: 100%;
+  background-color: $color-white;
+  padding: 54px 55px 54px 42px;
+  @include d-flex();
+  div {
+    @include d-flex(flex-start) {
+      align-items: center;
+      h2 {
+        color: $color-main;
+        font-family: $main-font-bold;
+        font-size: 18px;
+        text-align: center;
+      }
+      p {
+        color: $color-dark;
+        font-family: $main-font-italic;
+        font-size: 14px;
+        padding-left: 23px;
+      }
+    }
+  }
+  form {
+    @include d-flex();
+    div {
+      @include d-flex();
+      align-items: bottom;
+      input {
+        border: none;
+        padding-left: 10px;
+        &:focus {
+          outline: none;
+        }
+        &::placeholder {
+          color: $color-dark;
+          font-family: $main-font-italic;
+          font-size: 14px;
+        }
+      }
+      input.error {
+        border-bottom: 1px dotted $color-main;
+      }
+    }
+    button {
+      width: 100px;
+      height: 50px;
+      background-color: $color-main;
+      border: none;
+      color: $color-white;
+      font-family: $main-font-bold;
+      font-size: 14px;
+      &:disabled {
+        background-color: $color-dark;
+        opacity: 0.2;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+@media (min-width: 780px) and (max-width: 1024px) {
+  .joinus {
+    div {
+      @include d-flex(flex-start, column);
+    }
+  }
+}
+
+@media (min-width: 425px) and (max-width: 779px) {
+  .joinus {
+    div,
+    form {
+      @include d-flex(flex-start, column);
+    }
+    div {
+      h2 {
+        padding-left: 20px;
+      }
+      p {
+        text-align: center;
+      }
+    }
+    form {
+      button {
+        margin-top: 10px;
+        align-self: center;
+      }
+    }
+  }
+}
+@media (min-width: 320px) and (max-width: 424px) {
+  .joinus {
+    display: block;
+    margin: 0 auto;
+    div,
+    form {
+      @include d-flex(flex-start, column);
+      width: 100%;
+      text-align: center;
+    }
+    form {
+      div {
+        margin: 20px auto;
+        width: 60%;
+      }
+      button {
+        margin: 0 auto;
+      }
+    }
+  }
+}

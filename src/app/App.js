@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, HashRouter } from 'react-router-dom';
 import Header from './components/Header/Header';
+import JoinUs from './components/JoinUs/JoinUs';
 import Footer from './components/Footer/Footer';
 import Content from './components/Content/Content';
 import '../styles/index.scss';
@@ -29,6 +30,7 @@ class App extends Component {
             <div>
               <Header visible={headerAndFooterVisible} />
               <Content className="content" toggleHeaderAndFooterVisibility={this.toggleHeaderAndFooterVisibility} />
+              <JoinUs />
               <Footer visible={headerAndFooterVisible} />
             </div>
           </HashRouter>
