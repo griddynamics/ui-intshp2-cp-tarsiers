@@ -1,37 +1,12 @@
 @import './fonts';
 @import './variables';
+@import './mixin';
+
+@import './base';
+@import './utility';
 @import './grid';
 
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'HarmoniaSansProCyr-regular';
-}
-
-.flx {
-  display: flex;
-}
-
-header {
-  height: 180px;
-  width: 100%;
-  background-color:$white-clr;
-}
-
-.content {
-  height: 500px;
-  width: 100%;
-  background-color:$grey-clr;
-}
-
-footer {
-height: 400px;
-width: 100%;
-background-color:$white-clr;
-}
-
-.jc-center {
-  justify-content: center;
-}
-
+// Components
+@import './components/header';
+@import './components/footer';
+@import './components/main';

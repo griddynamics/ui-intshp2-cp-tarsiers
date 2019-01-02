@@ -1,0 +1,41 @@
+.footer {
+  position: relative;
+  background-color: $color-white;
+
+  &__block {
+    width: 100%;
+    margin-bottom: 44px;
+    @include d-flex();
+  }
+
+  &__copyright {
+    height: 100px;
+
+    & > span {
+      padding-top: 20px;
+      display: inline-block;
+    }
+  }
+
+  &__links {
+    height: 100px;
+    padding: 0 50px;
+    padding-top: 28px;
+    @include d-flex();
+
+    & > li {
+      font-size: 14px;
+      line-height: 2;
+    }
+  }
+
+  &__payments {
+    height: 100px;
+
+    & > p {
+      padding-top: 30px;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+  }
+}
