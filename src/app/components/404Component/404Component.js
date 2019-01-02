@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { TOGGLE_HEADER_AND_FOOTER_VISIBILITY } from '../../actions';
 
 class My404Component extends Component {
-  constructor(...props) {
-    super(props);
-  }
-
-  componentWillMount() {
-    const { toggleHeaderAndFooterVisibility } = this.props;
-    toggleHeaderAndFooterVisibility();
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(TOGGLE_HEADER_AND_FOOTER_VISIBILITY);
   }
 
   componentWillUnmount() {
-    const { toggleHeaderAndFooterVisibility } = this.props;
-    toggleHeaderAndFooterVisibility();
+    const { dispatch } = this.props;
+    dispatch(TOGGLE_HEADER_AND_FOOTER_VISIBILITY);
   }
 
   render() {
     return <div>Page is not found</div>;
   }
 }
-export default My404Component;
+
+const mapStateToProps = state => ({ ...state });
+
+export default connect(mapStateToProps)(My404Component);

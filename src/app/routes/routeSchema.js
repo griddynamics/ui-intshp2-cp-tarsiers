@@ -5,17 +5,13 @@ import ProductDetailsPage from '../components/ProductDetailsPage/ProductDetailsP
 import HomePage from '../components/HomePage/HomePage';
 import My404Component from '../components/404Component/404Component';
 
-const RouteSchema = props => (
+const RouteSchema = () => (
   <main className="main">
     <Switch>
       <Route exact path="/products" component={ProductListPage} />
       <Route exact path="/" component={HomePage} />
       <Route path="/products/:productId" component={ProductDetailsPage} />
-      <Route
-        path="*"
-        exact
-        render={() => <My404Component toggleHeaderAndFooterVisibility={props.toggleHeaderAndFooterVisibility} />}
-      />
+      <Route path="*" exact render={() => <My404Component />} />
     </Switch>
   </main>
 );

@@ -1,4 +1,6 @@
+/* eslint-disable no-unused-vars */
 import axios from 'axios';
+import regeneratorRuntime from 'regenerator-runtime';
 import HttpService from './http.service';
 
 const testUrl = 'https://jsonplaceholder.typicode.com/users';
@@ -51,6 +53,7 @@ const updatedObject = {
   }
 };
 
+jest.useRealTimers();
 
 describe('get', () => {
   test('should answer on GET', async () => {
