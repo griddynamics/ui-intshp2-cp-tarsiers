@@ -11,9 +11,9 @@ const Header = props => {
     <header className="header">
       <div className="container">
         <div className="header-top">
-          {/* <i className="far fa-envelope">
+          <i className="far fa-envelope">
             <span>info@shopy.com</span>
-          </i> */}
+          </i>
           <i className="fas fa-book">
             <span>453 - 5553 - 996</span>
           </i>

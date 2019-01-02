@@ -1,8 +1,8 @@
 import React from 'react';
-import { mount /* , render, shallow */ } from 'enzyme';
+import { shallow /* , render, mount */ } from 'enzyme';
 import App from './App';
 
-it('renders without crashing', () => {
-  const wrapper = mount(<App />);
-  expect(wrapper.is('App')).toBe(true);
+it('should match its snapshot', () => {
+  const shallowWrapper = shallow(<App />);
+  expect(shallowWrapper).toMatchSnapshot();
 });
