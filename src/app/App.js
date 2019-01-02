@@ -12,14 +12,10 @@ const App = () => (
     <div>
       <HashRouter>
         <div>
-          <HashRouter>
-            <div>
-              <Header visible={headerAndFooterVisible} />
-              <Content className="content" toggleHeaderAndFooterVisibility={this.toggleHeaderAndFooterVisibility} />
-              <JoinUs />
-              <Footer visible={headerAndFooterVisible} />
-            </div>
-          </HashRouter>
+          <Header />
+          <Content className="content" />
+          <JoinUs />
+          <Footer />
         </div>
       </HashRouter>
     </div>
