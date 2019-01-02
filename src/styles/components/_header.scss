@@ -2,10 +2,12 @@
   width: 100%;
   padding-bottom: 62px;
   background-color: $color-white;
+  font-family: $main-font-regular;
 
   &-top {
     padding: 10px;
     @include d-flex();
+    justify-content: space-between;
 
     span {
       padding-left: 5px;
@@ -18,19 +20,82 @@
   }
 
   &-links {
-    margin-right: auto;
+    margin-top: 10px;
+    width: 100%;
 
     & > li {
       display: inline;
-      padding: 0 5px;
+      padding: 0 15px;
     }
   }
+}
 
-  .icons-right i {
-    padding: 0 10px;
+.icons-right i {
+  padding: 0 10px;
+}
+
+.navbar {
+  @include d-flex();
+}
+
+.header-nav-right {
+  text-align: right;
+}
+
+img.logo {
+  padding: 0 5px;
+}
+
+.fas.fa-bars {
+  display: none;
+}
+
+.header-top {
+  display: flex;
+  padding-top: 30px;
+  justify-content: flex-start;
+
+  & > i::before {
+    color: $color-main;
   }
 
-  .navbar {
-    @include d-flex();
+  i {
+    flex-basis: 15%;
+    & > span {
+      font-family: $main-font-regular;
+    }
+  }
+  .icons-right {
+    display: flex;
+    margin-left: auto;
+  }
+}
+
+.navbar-link:last-child {
+  position: absolute;
+  height: 0;
+  width: 0;
+}
+
+@media screen and (max-width: 750px) {
+  .fas.fa-bars {
+    display: inline-block;
+  }
+
+  .nav-main {
+    display: none;
+  }
+
+  .header-nav-right {
+    text-align: right;
+    width: 100%;
+  }
+
+  .header-links li {
+    margin-top: 0;
+    text-align: right;
+  }
+  .col-3 {
+    width: 100%;
   }
 }
