@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { connect } from 'react-redux';
 import logo from '../../../assets/logo.png';
 
 const Footer = props => {
-  const { visible } = props;
+  const { headerFooterVisibility } = props;
+  const visible = headerFooterVisibility.value;
+
   return visible ? (
     <footer className="footer">
       <nav className="footer__block mt-60 container">
@@ -54,4 +56,6 @@ const Footer = props => {
   ) : null;
 };
 
-export default Footer;
+const mapStateToProps = state => ({ ...state });
+
+export default connect(mapStateToProps)(Footer);
