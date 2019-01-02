@@ -28,6 +28,13 @@ class HttpService {
       .catch(error => Promise.reject(error));
   }
 
+  patch(url, data, options) {
+    return axios
+      .patch(url, data, options)
+      .then(response => response.data)
+      .catch(error => Promise.reject(error));
+  }
+
   delete(url, options) {
     axios
       .delete(url, options)
