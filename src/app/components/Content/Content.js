@@ -1,13 +1,9 @@
 import React from 'react';
+import RouteSchema from '../../routes/routeSchema';
 
-function Content() {
-     return (
-        <div className="content">
-           <div className="flx jc-center">
-             <h1>Content</h1>
-           </div>
-        </div>
-     );
-  }
+const Content = props => {
+  const { toggleHeaderAndFooterVisibility } = props;
+  return <RouteSchema toggleHeaderAndFooterVisibility={toggleHeaderAndFooterVisibility} />;
+};
 
 export default Content;
