@@ -1,41 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, HashRouter } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Content from './components/Content/Content';
 import '../styles/index.scss';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      headerAndFooterVisible: true
-    };
-  }
-
-  toggleHeaderAndFooterVisibility = () => {
-    const { headerAndFooterVisible } = this.state;
-    this.setState({
-      headerAndFooterVisible: !headerAndFooterVisible
-    });
-  };
-
-  render() {
-    const { headerAndFooterVisible } = this.state;
-    return (
-      <Router>
+const App = () => (
+  <Router>
+    <div>
+      <HashRouter>
         <div>
-          <HashRouter>
-            <div>
-              <Header visible={headerAndFooterVisible} />
-              <Content className="content" toggleHeaderAndFooterVisibility={this.toggleHeaderAndFooterVisibility} />
-              <Footer visible={headerAndFooterVisible} />
-            </div>
-          </HashRouter>
+          <Header />
+          <Content className="content" />
+          <Footer />
         </div>
-      </Router>
-    );
-  }
-}
+      </HashRouter>
+    </div>
+  </Router>
+);
 
 export default App;

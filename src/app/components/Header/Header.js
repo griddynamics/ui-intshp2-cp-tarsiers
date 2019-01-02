@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 const Header = props => {
-  const { visible } = props;
+  const { headerFooterVisibility } = props;
+  const visible = headerFooterVisibility.value;
+
   return visible ? (
     <header className="jc-center flx">
       <h1>Header</h1>
@@ -21,4 +24,6 @@ const Header = props => {
   ) : null;
 };
 
-export default Header;
+const mapStateToProps = state => ({ ...state });
+
+export default connect(mapStateToProps)(Header);
