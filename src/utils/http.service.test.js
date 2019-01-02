@@ -51,7 +51,6 @@ const updatedObject = {
   }
 };
 
-
 describe('get', () => {
   test('should answer on GET', async () => {
     const spy = jest.spyOn(axios, 'get');
