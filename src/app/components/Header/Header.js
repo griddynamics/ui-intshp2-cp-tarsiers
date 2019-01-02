@@ -1,10 +1,12 @@
+import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import logo from '../../../assets/logo.png';
 
 const Header = props => {
-  const { visible } = props;
+  const { headerFooterVisibility } = props;
+  const visible = headerFooterVisibility.value;
+
   return visible ? (
     <header className="header">
       <div className="container">
@@ -70,4 +72,6 @@ const Header = props => {
   ) : null;
 };
 
-export default Header;
+const mapStateToProps = state => ({ ...state });
+
+export default connect(mapStateToProps)(Header);
