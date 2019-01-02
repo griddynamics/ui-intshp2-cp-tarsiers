@@ -5,7 +5,7 @@ import Footer from './components/Footer/Footer';
 import Content from './components/Content/Content';
 import '../styles/index.scss';
 
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
