@@ -12,6 +12,9 @@ class JoinUs extends Component {
   validate = () => {
     const { email } = this.state;
     const errors = [];
+    if (email.length === 0) {
+      return errors;
+    }
     if (!/^[a-zA-Z0-9]+(([a-zA-Z0-9]\.)*)+([a-zA-Z0-9]*)+@[a-zA-Z0-9]+(\.+[A-Za-z]+)+$/.test(email)) {
       errors.push('Please enter correct e-mail');
     }
