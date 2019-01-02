@@ -35,6 +35,7 @@
           color: $color-dark;
           font-family: $main-font-italic;
           font-size: 14px;
+          opacity: 0.5;
         }
       }
       input.error {
@@ -64,6 +65,9 @@
   .joinus {
     div {
       @include d-flex(flex-start, column);
+    }
+    form {
+      width: 40%;
     }
   }
 }

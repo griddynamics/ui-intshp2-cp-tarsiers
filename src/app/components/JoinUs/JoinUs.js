@@ -52,7 +52,7 @@ class JoinUs extends Component {
           <h2>NEWS LETTER</h2>
           <p>join us now to get all news and special offers</p>
         </div>
-        <form onSubmit={this.handleSubmit} className="col-5">
+        <form onSubmit={this.handleSubmit} className="col-4">
           <div className="col-4">
             <img src={mailicon} alt="mailicon" />
             <input
