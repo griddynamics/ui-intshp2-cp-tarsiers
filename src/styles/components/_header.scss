@@ -10,12 +10,13 @@
     justify-content: space-between;
 
     span {
-      padding-left: 5px;
+      padding-right: 5px;
     }
   }
 
   &-main {
-    padding-top: 50px;
+    padding-top: 20px;
+    position: relative;
     @include d-flex();
   }
 
@@ -25,7 +26,7 @@
 
     & > li {
       display: inline;
-      padding: 0 15px;
+      padding: 0 20px;
     }
   }
 }
@@ -44,15 +45,17 @@
 
 img.logo {
   padding: 0 5px;
+  height: auto;
+  width: 120px;
 }
 
-.fas.fa-bars {
-  display: none;
+.menu {
+  display: none !important;
 }
 
 .header-top {
   display: flex;
-  padding-top: 30px;
+  padding-top: 20px;
   justify-content: flex-start;
 
   & > i::before {
@@ -60,7 +63,7 @@ img.logo {
   }
 
   i {
-    flex-basis: 15%;
+    padding-right: 10px;
     & > span {
       font-family: $main-font-regular;
     }
@@ -71,19 +74,56 @@ img.logo {
   }
 }
 
-.navbar-link:last-child {
-  position: absolute;
-  height: 0;
-  width: 0;
+@media screen and (max-width: 850px) {
+  .header-links > li {
+    padding: 5px 15px;
+  }
 }
 
-@media screen and (max-width: 750px) {
-  .fas.fa-bars {
-    display: inline-block;
+@media screen and (max-width: 770px) {
+  .menu {
+    display: inline-block !important;
+    margin-right: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    outline: none;
+    border: none;
   }
-
   .nav-main {
     display: none;
+  }
+
+  .nav-toggle {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
+  }
+
+  .nav-toggle .header-links {
+    text-align: center;
+    display: flex;
+    background-color: #f0f0f0;
+    width: 100%;
+    flex-flow: column nowrap;
+    padding: 10px;
+  }
+
+  .header-top {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    .icons-right {
+      margin: 0;
+      font-size: 20px;
+      padding: 5px 0;
+    }
+    i {
+      padding-top: 5px;
+    }
   }
 
   .header-nav-right {
@@ -91,10 +131,6 @@ img.logo {
     width: 100%;
   }
 
-  .header-links li {
-    margin-top: 0;
-    text-align: right;
-  }
   .col-3 {
     width: 100%;
   }
