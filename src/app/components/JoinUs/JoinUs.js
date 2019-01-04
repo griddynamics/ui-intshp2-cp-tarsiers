@@ -46,27 +46,31 @@ class JoinUs extends Component {
   render() {
     const { email } = this.state;
     const isDisabled = this.validate(email);
+    const error = '* Please enter valid e-mail: sample@samle.com!';
     return (
-      <div className="joinus container">
-        <div className="col-6">
+      <div className="joinus col-9">
+        <div className="joinus-info col-6">
           <h2>NEWS LETTER</h2>
           <p>join us now to get all news and special offers</p>
         </div>
         <form onSubmit={this.handleSubmit} className="col-4">
-          <div className="col-4">
-            <img src={mailicon} alt="mailicon" />
-            <input
-              className={isDisabled ? 'error' : ''}
-              type="email"
-              placeholder="type your email here"
-              value={email}
-              required
-              onChange={this.handleEmailChange}
-            />
+          <div>
+            <div className="mailfield col-4">
+              <img src={mailicon} alt="mailicon" />
+              <input
+                className={isDisabled ? 'error' : ''}
+                type="email"
+                placeholder="type your email here"
+                value={email}
+                required
+                onChange={this.handleEmailChange}
+              />
+            </div>
+            <button disabled={isDisabled} type="submit">
+              join us
+            </button>
           </div>
-          <button disabled={isDisabled} type="submit">
-            join us
-          </button>
+          <p className={isDisabled ? 'showerror' : ''}>{error}</p>
         </form>
       </div>
     );
