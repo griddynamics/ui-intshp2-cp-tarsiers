@@ -1,5 +1,10 @@
 import React from 'react';
+import Slider, { slidesData } from '../Slideshow/sliderComponents/Slider';
 
-const HomePage = () => <div>Home page</div>;
+const HomePage = () => (
+  <div>
+    <Slider slides={slidesData} />
+  </div>
+);
 
 export default HomePage;
