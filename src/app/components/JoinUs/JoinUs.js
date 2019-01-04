@@ -11,14 +11,13 @@ class JoinUs extends Component {
 
   validate = () => {
     const { email } = this.state;
-    const errors = [];
-    if (email.length === 0) {
-      return errors;
+    if (!email.length) {
+      return false;
     }
     if (!/^[a-zA-Z0-9]+(([a-zA-Z0-9]\.)*)+([a-zA-Z0-9]*)+@[a-zA-Z0-9]+(\.+[A-Za-z]+)+$/.test(email)) {
-      errors.push('Please enter correct e-mail');
+      return true;
     }
-    return errors;
+    return false;
   };
 
   handleEmailChange = evt => {
@@ -40,15 +39,13 @@ class JoinUs extends Component {
 
   canBeSubmitted = () => {
     const { email } = this.state;
-    const errors = this.validate(email);
-    const isDisabled = Object.keys(errors).some(x => errors[x]);
+    const isDisabled = this.validate(email);
     return !isDisabled;
   };
 
   render() {
     const { email } = this.state;
-    const errors = this.validate(email);
-    const isDisabled = Object.keys(errors).some(x => errors[x]);
+    const isDisabled = this.validate(email);
     return (
       <div className="joinus container">
         <div className="col-6">
@@ -63,8 +60,8 @@ class JoinUs extends Component {
               type="email"
               placeholder="type your email here"
               value={email}
-              onChange={this.handleEmailChange}
               required
+              onChange={this.handleEmailChange}
             />
           </div>
           <button disabled={isDisabled} type="submit">

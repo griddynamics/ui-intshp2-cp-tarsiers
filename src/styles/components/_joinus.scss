@@ -2,6 +2,7 @@
   width: 100%;
   background-color: $color-white;
   padding: 54px 55px 54px 42px;
+  margin-top: 120px;
   @include d-flex();
   div {
     @include d-flex(flex-start) {
