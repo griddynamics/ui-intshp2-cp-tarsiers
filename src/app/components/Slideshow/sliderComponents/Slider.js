@@ -31,15 +31,51 @@ export default class Slider extends Component {
     this.goToSlide = this.goToSlide.bind(this);
     this.goToPrevSlide = this.goToPrevSlide.bind(this);
     this.goToNextSlide = this.goToNextSlide.bind(this);
-
     this.state = {
-      activeIndex: 0
+      activeIndex: 0,
+      isStopped: false
     };
   }
 
-  componentDidMount() {
-    setInterval(this.goToNextSlide, 2000);
-  }
+  componentDidMount = () => {
+    this.activate();
+  };
+
+  componentWillUnmount = () => {
+    this.deactivate();
+  };
+
+  activate = () => {
+    this.interval = setInterval(this.goToNextSlide, 1000);
+  };
+
+  deactivate = () => {
+    clearInterval(this.interval);
+  };
+
+  isStoppedCheck = () => {
+    const { isStopped } = this.state;
+    if (!isStopped) {
+      this.setState({
+        isStopped: true
+      });
+    }
+  };
+
+  handleClickIndicator = id => {
+    this.goToSlide(id);
+    this.isStoppedCheck();
+  };
+
+  handleClickLeft = () => {
+    this.goToPrevSlide();
+    this.isStoppedCheck();
+  };
+
+  handleClickRight = () => {
+    this.goToNextSlide();
+    this.isStoppedCheck();
+  };
 
   goToSlide(index) {
     this.setState({
@@ -89,10 +125,10 @@ export default class Slider extends Component {
 
   render() {
     const { slides } = this.props;
-    const { activeIndex } = this.state;
+    const { isStopped, activeIndex } = this.state;
     return (
-      <div className="slider">
-        <SliderLeftArrow onClick={e => this.goToPrevSlide(e)} />
+      <div className="slider" onMouseEnter={this.deactivate} onMouseLeave={isStopped ? null : this.activate}>
+        <SliderLeftArrow onClick={() => this.handleClickLeft()} />
 
         <ul className="slider__slides">
           {slides.map((slide, id) => (
@@ -100,7 +136,7 @@ export default class Slider extends Component {
           ))}
         </ul>
 
-        <SliderRightArrow onClick={e => this.goToNextSlide(e)} />
+        <SliderRightArrow onClick={() => this.handleClickRight()} />
 
         <ul className="slider__indicators">
           {slides.map((slide, id) => (
@@ -109,7 +145,7 @@ export default class Slider extends Component {
               index={id}
               activeIndex={activeIndex}
               isActive={activeIndex === id}
-              onClick={() => this.goToSlide(id)}
+              onClick={() => this.handleClickIndicator(id)}
             />
           ))}
         </ul>
