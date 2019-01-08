@@ -20,9 +20,7 @@ export default class Slider extends Component {
 
   componentDidMount = () => {
     HttpService.get(serverUrl).then(myJson => {
-      this.setState({
-        products: myJson.slides
-      });
+      this.setState({ products: myJson.slides });
     });
     this.activate();
   };
@@ -43,9 +41,7 @@ export default class Slider extends Component {
     const { isStopped } = this.state;
 
     if (!isStopped) {
-      this.setState({
-        isStopped: true
-      });
+      this.setState({ isStopped: true });
     }
   };
 
@@ -65,9 +61,7 @@ export default class Slider extends Component {
   };
 
   goToSlide = index => {
-    this.setState({
-      activeIndex: index
-    });
+    this.setState({ activeIndex: index });
   };
 
   goToPrevSlide = e => {
@@ -84,9 +78,7 @@ export default class Slider extends Component {
 
     --index;
 
-    this.setState({
-      activeIndex: index
-    });
+    this.setState({ activeIndex: index });
   };
 
   goToNextSlide = e => {
@@ -103,9 +95,7 @@ export default class Slider extends Component {
 
     ++index;
 
-    this.setState({
-      activeIndex: index
-    });
+    this.setState({ activeIndex: index });
   };
 
   render() {

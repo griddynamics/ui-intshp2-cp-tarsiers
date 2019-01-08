@@ -1,19 +1,16 @@
 {
   "slides": [
     {
-      "id": 0
+      "id": 0,
+      "content": "https://github.com/SofiMat/slidesMock/blob/master/female.png?raw=true"
     },
     {
-      "id": 1
+      "id": 1,
+      "content": "https://github.com/SofiMat/slidesMock/blob/master/banner%20main1-1540x650.jpg?raw=true"
     },
     {
-      "id": 2
-    },
-    {
-      "id": 3
-    },
-    {
-      "id": 4
+      "id": 2,
+      "content": "https://github.com/SofiMat/slidesMock/blob/master/banner%20main2-1540x650.jpg?raw=true"
     }
   ]
 }
