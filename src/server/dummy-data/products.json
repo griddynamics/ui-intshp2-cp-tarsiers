@@ -1,17 +1,19 @@
-[
-  {
-    "name": "trousers",
-    "manufacturer": "nike",
-    "price": "100"
-  },
-  {
-    "name": "trousers",
-    "manufacturer": "nike",
-    "price": "100"
-  },
-  {
-    "name": "shoes",
-    "manufacturer": "nike",
-    "price": "200"
-  }
-]
+{
+  "slides": [
+    {
+      "id": 0
+    },
+    {
+      "id": 1
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    }
+  ]
+}

@@ -7,9 +7,9 @@ class HttpService {
     };
   }
 
-  get(url, options) {
-    axios
-      .get(url, options)
+  get(url) {
+    return axios
+      .get(url)
       .then(response => response.data)
       .catch(error => Promise.reject(error));
   }
@@ -22,7 +22,7 @@ class HttpService {
   }
 
   put(url, data, options) {
-    axios
+    return axios
       .put(url, data, options)
       .then(response => response.data)
       .catch(error => Promise.reject(error));
@@ -36,7 +36,7 @@ class HttpService {
   }
 
   delete(url, options) {
-    axios
+    return axios
       .delete(url, options)
       .then(response => response.data)
       .catch(error => Promise.reject(error));

@@ -4,40 +4,26 @@ import SliderIndicator from './Indicators';
 import Slide from './Slides';
 
 import '../style/Slider.scss';
+import HttpService from '../../../../utils/http.service';
 
-export const slidesData = [
-  {
-    id: 0,
-    content: 'http://www.cool-cities.com/mobile/bmw-portrait/munich/img/2_3.jpg'
-  },
-  {
-    id: 1,
-    content: 'https://latteluxurynews.com/wp-content/uploads/2018/11/iStock-471758019-NEW-MALTA-IMAGE.jpg'
-  },
-  {
-    id: 2,
-    content: 'https://cdn.dvidshub.net/media/thumbs/photos/1808/4690044/1000w_q95.jpg'
-  },
-  {
-    id: 3,
-    content: 'https://guncarrier.com/wp-content/uploads/2015/08/remington-1100-ft-image.jpg'
-  }
-];
+const serverUrl = 'http://localhost:3300/api/products';
 
 export default class Slider extends Component {
   constructor(props) {
     super(props);
-
-    this.goToSlide = this.goToSlide.bind(this);
-    this.goToPrevSlide = this.goToPrevSlide.bind(this);
-    this.goToNextSlide = this.goToNextSlide.bind(this);
     this.state = {
       activeIndex: 0,
-      isStopped: false
+      isStopped: false,
+      products: []
     };
   }
 
   componentDidMount = () => {
+    HttpService.get(serverUrl).then(myJson => {
+      this.setState({
+        products: myJson.slides
+      });
+    });
     this.activate();
   };
 
@@ -46,7 +32,7 @@ export default class Slider extends Component {
   };
 
   activate = () => {
-    this.interval = setInterval(this.goToNextSlide, 1000);
+    this.interval = setInterval(this.goToNextSlide, 3000);
   };
 
   deactivate = () => {
@@ -77,20 +63,19 @@ export default class Slider extends Component {
     this.isStoppedCheck();
   };
 
-  goToSlide(index) {
+  goToSlide = index => {
     this.setState({
       activeIndex: index
     });
-  }
+  };
 
-  goToPrevSlide(e) {
+  goToPrevSlide = e => {
     if (e) {
       e.preventDefault();
     }
-    const { activeIndex } = this.state;
+    const { activeIndex, products } = this.state;
     let index = activeIndex;
-    const { slides } = this.props;
-    const slidesLength = slides.length;
+    const slidesLength = products.length;
 
     if (index < 1) {
       index = slidesLength;
@@ -101,16 +86,15 @@ export default class Slider extends Component {
     this.setState({
       activeIndex: index
     });
-  }
+  };
 
-  goToNextSlide(e) {
+  goToNextSlide = e => {
     if (e) {
       e.preventDefault();
     }
-    const { activeIndex } = this.state;
+    const { activeIndex, products } = this.state;
     let index = activeIndex;
-    const { slides } = this.props;
-    const slidesLength = slides.length - 1;
+    const slidesLength = products.length - 1;
 
     if (index === slidesLength) {
       index = -1;
@@ -121,17 +105,16 @@ export default class Slider extends Component {
     this.setState({
       activeIndex: index
     });
-  }
+  };
 
   render() {
-    const { slides } = this.props;
-    const { isStopped, activeIndex } = this.state;
+    const { isStopped, activeIndex, products } = this.state;
     return (
       <div className="slider" onMouseEnter={this.deactivate} onMouseLeave={isStopped ? null : this.activate}>
         <SliderLeftArrow onClick={() => this.handleClickLeft()} />
 
         <ul className="slider__slides">
-          {slides.map((slide, id) => (
+          {products.map((slide, id) => (
             <Slide key={slide.id} index={id} activeIndex={activeIndex} slide={slide} />
           ))}
         </ul>
@@ -139,7 +122,7 @@ export default class Slider extends Component {
         <SliderRightArrow onClick={() => this.handleClickRight()} />
 
         <ul className="slider__indicators">
-          {slides.map((slide, id) => (
+          {products.map((slide, id) => (
             <SliderIndicator
               key={slide.id}
               index={id}

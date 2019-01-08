@@ -24,6 +24,8 @@
   opacity: 0.75;
   transform: translateY(-50%);
   transition: opacity 0.15s cubic-bezier(0.4, 0, 1, 1);
+  background: transparent;
+  border: none;
   cursor: pointer;
 
   &:focus {
@@ -46,7 +48,10 @@
 .slider__indicators {
   @include d-flex(center, row);
 
-  margin-top: 20px;
+  position: absolute;
+  bottom: 10%;
+  right: 50%;
+  left: 50%;
 
   li {
     &:nth-of-type(n + 2) {
@@ -73,5 +78,11 @@
     &:hover {
       opacity: 0.75;
     }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .fa-2x {
+    font-size: 1em;
   }
 }
