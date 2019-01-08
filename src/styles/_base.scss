@@ -17,11 +17,6 @@ body {
   font-family: $main-font-regular;
 }
 
-.container {
-  max-width: 1170px;
-  margin: 0 auto;
-}
-
 a {
   color: inherit;
   text-decoration: none;
@@ -33,10 +28,34 @@ a {
   }
 }
 
+.container {
+  width: 100%;
+  max-width: $container-width;
+  margin: 0 auto;
+  @media screen and(max-width: $media-large) {
+    width: 95%;
+  }
+  @media screen and(max-width: $media-mobile) {
+    width: 90%;
+  }
+}
+
 ul {
   padding: 0;
   margin: 0;
   list-style-type: none;
+}
+
+.main {
+  position: relative;
+  min-height: 500px; // for development
+  background-color: $color-dark;
+  color: $color-white;
+  @include d-flex(center);
+
+  & > div {
+    @include abs-center();
+  }
 }
 
 .wrapper {

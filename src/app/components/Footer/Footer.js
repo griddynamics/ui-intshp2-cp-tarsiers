@@ -1,57 +1,44 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+
+import { RouterLink, ExternalLink } from '../Links';
 import logo from '../../../assets/logo.png';
+import appConfig from '../../../config/appConfig';
+import './Footer.scss';
 
 const Footer = props => {
   const { headerFooterVisibility } = props;
   const visible = headerFooterVisibility.value;
 
+  const renderLinks = list =>
+    list.map(link => {
+      const { id, value, href, isOrigin } = link;
+      const linkType = isOrigin ? <RouterLink href={href} value={value} /> : <ExternalLink href={href} value={value} />;
+
+      return <li key={id}>{linkType}</li>;
+    });
+
+  const { links, payments } = appConfig.footer;
+  const footerLinks = <ul>{renderLinks(links)}</ul>;
+  const footerPayments = <ul>{renderLinks(payments)}</ul>;
+
   return visible ? (
     <footer className="footer">
-      <nav className="footer__block mt-60 container">
-        <div className="footer__copyright col-3">
-          <img src={logo} alt="" />
-          <span>Shopy @copyright 2018</span>
-        </div>
-        <div className="footer__links col-7">
-          <ul>
-            <li>
-              <Link to="/" className="active">
-                about us
-              </Link>
-            </li>
-            <li>
-              <Link to="/">contact us</Link>
-            </li>
-            <li>
-              <Link to="/">support</Link>
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <Link to="/">our feed</Link>
-            </li>
-            <li>
-              <Link to="/">terms and conditions</Link>
-            </li>
-            <li>
-              <Link to="/">our privacy</Link>
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <Link to="/">join us</Link>
-            </li>
-            <li>
-              <Link to="/">live support</Link>
-            </li>
-          </ul>
-        </div>
-        <div className="footer__payments col-2">
-          <p className="active">Payment Methods</p>
-        </div>
-      </nav>
+      <div className="container">
+        <nav className="footer__block row">
+          <div className="footer__copyright col-3">
+            <img src={logo} alt="" />
+            <span>Shopy &copy; 2018</span>
+          </div>
+          <div className="footer__links col-6">{footerLinks}</div>
+          <div className="footer__payments col-2">
+            <div className="payments-wrap">
+              <p>Payment Methods</p>
+              {footerPayments}
+            </div>
+          </div>
+        </nav>
+      </div>
     </footer>
   ) : null;
 };

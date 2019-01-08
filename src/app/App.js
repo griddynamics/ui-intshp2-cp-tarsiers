@@ -8,15 +8,13 @@ import '../styles/index.scss';
 
 const App = () => (
   <Router>
-    <div>
-      <HashRouter>
-        <div>
-          <Header />
-          <Content className="content" />
-          <Footer />
-        </div>
-      </HashRouter>
-    </div>
+    <HashRouter>
+      <>
+        <Header />
+        <Content className="content" />
+        <Footer />
+      </>
+    </HashRouter>
   </Router>
 );
 

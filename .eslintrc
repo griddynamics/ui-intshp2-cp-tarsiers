@@ -27,6 +27,26 @@
     "max-len": ["error", { "code": 120 }],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "operator-linebreak": 0,
-    "jsx-a11y/mouse-events-have-key-events": 0
+    "implicit-arrow-linebreak": "off",
+    "jsx-a11y/mouse-events-have-key-events": 0,
+    "object-curly-newline": [
+      "warn",
+      {
+        "minProperties": 4
+      }
+    ],
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": ["const", "let"],
+        "next": "*"
+      },
+      {
+        "blankLine": "any",
+        "prev": ["const", "let"],
+        "next": ["const", "let"]
+      }
+    ]
   }
 }
