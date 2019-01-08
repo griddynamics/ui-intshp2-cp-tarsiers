@@ -2,6 +2,7 @@ import React from 'react';
 
 const SliderIndicator = props => {
   const { index, onClick, activeIndex } = props;
+
   return (
     <li>
       <button

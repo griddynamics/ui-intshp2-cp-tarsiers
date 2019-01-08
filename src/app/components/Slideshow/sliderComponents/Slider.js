@@ -41,6 +41,7 @@ export default class Slider extends Component {
 
   isStoppedCheck = () => {
     const { isStopped } = this.state;
+
     if (!isStopped) {
       this.setState({
         isStopped: true
@@ -109,6 +110,7 @@ export default class Slider extends Component {
 
   render() {
     const { isStopped, activeIndex, products } = this.state;
+
     return (
       <div className="slider" onMouseEnter={this.deactivate} onMouseLeave={isStopped ? null : this.activate}>
         <SliderLeftArrow onClick={() => this.handleClickLeft()} />
