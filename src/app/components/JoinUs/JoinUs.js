@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import Snackbar from '../Snackbar/Snackbar';
 import mailicon from '../../../assets/mailicon.png';
 
 class JoinUs extends Component {
+  snackbarRef = React.createRef();
+
   constructor() {
     super();
     this.state = {
@@ -11,9 +14,6 @@ class JoinUs extends Component {
 
   validate = () => {
     const { email } = this.state;
-    if (!email.length) {
-      return false;
-    }
     if (!/^[a-zA-Z0-9]+(([a-zA-Z0-9]\.)*)+([a-zA-Z0-9]*)+@[a-zA-Z0-9]+(\.+[A-Za-z]+)+$/.test(email)) {
       return true;
     }
@@ -24,23 +24,23 @@ class JoinUs extends Component {
     this.setState({ email: evt.target.value });
   };
 
-  handleSubmit = evt => {
-    if (!this.canBeSubmitted()) {
-      evt.preventDefault();
-      return;
-    }
-    this.setState({
-      email: ''
-    });
-    const { email } = this.state;
-    // eslint-disable-next-line no-alert
-    alert(`Signed up with email: ${email}`);
+  showSnackbarHandler = () => {
+    this.snackbarRef.current.openSnackBar('You are registered now :) Have a great shopping!');
   };
 
   canBeSubmitted = () => {
     const { email } = this.state;
     const isDisabled = this.validate(email);
     return !isDisabled;
+  };
+
+  handleSubmit = () => {
+    if (!this.canBeSubmitted()) {
+      return;
+    }
+    this.setState({
+      email: ''
+    });
   };
 
   render() {
@@ -58,19 +58,19 @@ class JoinUs extends Component {
             <div className="mailfield col-4">
               <img src={mailicon} alt="mailicon" />
               <input
-                className={isDisabled ? 'error' : ''}
-                type="email"
+                type="text"
                 placeholder="type your email here"
                 value={email}
                 required
                 onChange={this.handleEmailChange}
               />
             </div>
-            <button disabled={isDisabled} type="submit">
+            <button disabled={isDisabled} onClick={this.showSnackbarHandler} type="submit">
               join us
             </button>
+            <Snackbar ref={this.snackbarRef} />
           </div>
-          <p className={isDisabled ? 'showerror' : ''}>{error}</p>
+          <p className={!isDisabled || !email ? '' : 'showerror'}>{error}</p>
         </form>
       </div>
     );
