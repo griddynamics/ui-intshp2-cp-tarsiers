@@ -5,8 +5,6 @@ const mapStateToProps = state => ({
   counter: state.counter.value
 });
 
-const CounterContainer = connect(
-  mapStateToProps
-)(Counter);
+const CounterContainer = connect(mapStateToProps)(Counter);
 
 export default CounterContainer;
