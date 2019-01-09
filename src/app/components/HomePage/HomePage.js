@@ -1,9 +1,9 @@
 import React from 'react';
-import Slider from '../Slideshow/sliderComponents/Slider';
+import Promotions from '../Slideshow/sliderComponents/Promotions';
 
 const HomePage = () => (
   <div className="wrapper">
-    <Slider />
+    <Promotions />
   </div>
 );
 

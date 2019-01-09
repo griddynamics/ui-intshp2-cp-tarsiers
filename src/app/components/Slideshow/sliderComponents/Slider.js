@@ -4,24 +4,17 @@ import SliderIndicator from './Indicators';
 import Slide from './Slides';
 
 import '../style/Slider.scss';
-import HttpService from '../../../../utils/http.service';
-
-const serverUrl = 'http://localhost:3300/api/products';
 
 export default class Slider extends Component {
   constructor(props) {
     super(props);
     this.state = {
       activeIndex: 0,
-      isStopped: false,
-      products: []
+      isStopped: false
     };
   }
 
   componentDidMount = () => {
-    HttpService.get(serverUrl).then(myJson => {
-      this.setState({ products: myJson.slides });
-    });
     this.activate();
   };
 
@@ -68,9 +61,11 @@ export default class Slider extends Component {
     if (e) {
       e.preventDefault();
     }
-    const { activeIndex, products } = this.state;
+    const { activeIndex } = this.state;
+    const { promotions } = this.props;
+
     let index = activeIndex;
-    const slidesLength = products.length;
+    const slidesLength = promotions.length;
 
     if (index < 1) {
       index = slidesLength;
@@ -85,9 +80,11 @@ export default class Slider extends Component {
     if (e) {
       e.preventDefault();
     }
-    const { activeIndex, products } = this.state;
+    const { activeIndex } = this.state;
+    const { promotions } = this.props;
+
     let index = activeIndex;
-    const slidesLength = products.length - 1;
+    const slidesLength = promotions.length - 1;
 
     if (index === slidesLength) {
       index = -1;
@@ -99,14 +96,15 @@ export default class Slider extends Component {
   };
 
   render() {
-    const { isStopped, activeIndex, products } = this.state;
+    const { isStopped, activeIndex } = this.state;
+    const { promotions } = this.props;
 
     return (
       <div className="slider" onMouseEnter={this.deactivate} onMouseLeave={isStopped ? null : this.activate}>
         <SliderLeftArrow onClick={() => this.handleClickLeft()} />
 
         <ul className="slider__slides">
-          {products.map((slide, id) => (
+          {promotions.map((slide, id) => (
             <Slide key={slide.id} index={id} activeIndex={activeIndex} slide={slide} />
           ))}
         </ul>
@@ -114,7 +112,7 @@ export default class Slider extends Component {
         <SliderRightArrow onClick={() => this.handleClickRight()} />
 
         <ul className="slider__indicators">
-          {products.map((slide, id) => (
+          {promotions.map((slide, id) => (
             <SliderIndicator
               key={slide.id}
               index={id}

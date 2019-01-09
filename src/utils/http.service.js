@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+const baseUrl = 'http://localhost:3300';
+
 class HttpService {
   constructor() {
     window.onerror = (message, file, line) => {
@@ -8,36 +10,46 @@ class HttpService {
   }
 
   get(url) {
+    const source = baseUrl + url;
+
     return axios
-      .get(url)
+      .get(source)
       .then(response => response.data)
       .catch(error => Promise.reject(error));
   }
 
   post(url, data, options) {
+    const source = baseUrl + url;
+
     return axios
-      .post(url, data, options)
+      .post(source, data, options)
       .then(response => response.data)
       .catch(error => Promise.reject(error));
   }
 
   put(url, data, options) {
+    const source = baseUrl + url;
+
     return axios
-      .put(url, data, options)
+      .put(source, data, options)
       .then(response => response.data)
       .catch(error => Promise.reject(error));
   }
 
   patch(url, data, options) {
+    const source = baseUrl + url;
+
     return axios
-      .patch(url, data, options)
+      .patch(source, data, options)
       .then(response => response.data)
       .catch(error => Promise.reject(error));
   }
 
   delete(url, options) {
+    const source = baseUrl + url;
+
     return axios
-      .delete(url, options)
+      .delete(source, options)
       .then(response => response.data)
       .catch(error => Promise.reject(error));
   }
