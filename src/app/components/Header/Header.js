@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router-dom';
+
+import './Header.scss';
 import logo from '../../../assets/logo.png';
 import HeaderTop from './HeaderTop';
 

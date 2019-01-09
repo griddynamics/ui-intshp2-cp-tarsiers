@@ -36,7 +36,8 @@
     width: 100%;
   }
 }
-@media screen and (max-width: 768px) {
+
+@media screen and (max-width: $media-tablet) {
   .col {
     &-1 {
       width: 16.66%;
@@ -64,7 +65,8 @@
     }
   }
 }
-@media screen and (max-width: 475px) {
+
+@media screen and (max-width: $media-mobile) {
   .col {
     &-1 {
       width: 50%;
