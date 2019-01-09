@@ -1,5 +1,5 @@
 import React from 'react';
-import Promotions from '../Slideshow/sliderComponents/Promotions';
+import Promotions from '../Promotions/Promotions';
 
 const HomePage = () => (
   <div className="wrapper">

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Slider from './Slider';
-import HttpService from '../../../../utils/http.service';
-import appConfig from '../../../../config/appConfig';
+import Slider from '../Slideshow/sliderComponents/Slider';
+import HttpService from '../../../utils/http.service';
+import appConfig from '../../../config/appConfig';
 
 export default class Promotions extends Component {
   constructor(props) {
