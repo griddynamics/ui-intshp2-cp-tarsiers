@@ -18,11 +18,11 @@ class HttpService {
       .catch(error => Promise.reject(error));
   }
 
-  post(url, data, options) {
+  post(url, data) {
     const source = baseUrl + url;
 
     return axios
-      .post(source, data, options)
+      .post(source, data)
       .then(response => response.data)
       .catch(error => Promise.reject(error));
   }
