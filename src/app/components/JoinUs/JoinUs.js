@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Snackbar from '../Snackbar/Snackbar';
 import mailicon from '../../../assets/mailicon.png';
+import './Joinus.scss';
 
 class JoinUs extends Component {
   snackbarRef = React.createRef();
@@ -14,6 +15,7 @@ class JoinUs extends Component {
 
   validate = () => {
     const { email } = this.state;
+
     if (!/^[a-zA-Z0-9]+(([a-zA-Z0-9]\.)*)+([a-zA-Z0-9]*)+@[a-zA-Z0-9]+(\.+[A-Za-z]+)+$/.test(email)) {
       return true;
     }
@@ -31,6 +33,7 @@ class JoinUs extends Component {
   canBeSubmitted = () => {
     const { email } = this.state;
     const isDisabled = this.validate(email);
+
     return !isDisabled;
   };
 
@@ -47,6 +50,7 @@ class JoinUs extends Component {
     const { email } = this.state;
     const isDisabled = this.validate(email);
     const error = '* Please enter valid e-mail: sample@samle.com!';
+
     return (
       <div className="joinus col-9">
         <div className="joinus-info col-6">

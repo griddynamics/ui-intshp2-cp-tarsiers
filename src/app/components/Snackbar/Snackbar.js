@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import './Snackbar.scss';
 
 export default class Snackbar extends PureComponent {
   message = '';
@@ -18,9 +19,7 @@ export default class Snackbar extends PureComponent {
 
   render() {
     const { isActive } = this.state;
-    return (
-      // <div className={isActive ? [Styles.snackbar, Styles.show].join(' ') : Styles.snackbar}>
-      <div className={isActive ? 'snackbar show' : 'snackbar'}>{this.message}</div>
-    );
+
+    return <div className={isActive ? 'snackbar show' : 'snackbar'}>{this.message}</div>;
   }
 }
