@@ -99,12 +99,22 @@ export default class Slider extends Component {
     const stopCheck = isStopped ? null : this.activate;
 
     return (
-      <div className="slider" onMouseEnter={this.deactivate} onMouseLeave={stopCheck}>
+      <div
+        className="slider"
+        onMouseEnter={this.deactivate}
+        onMouseLeave={stopCheck}
+      >
         <SliderLeftArrow onClick={() => this.handleClickLeft()} />
 
         <ul className="slider__slides">
           {slides.map((slide, id) => (
-            <Slide key={slide.id} index={id} activeIndex={activeIndex} slide={slide} isLink={isLink} />
+            <Slide
+              key={slide.id}
+              index={id}
+              activeIndex={activeIndex}
+              slide={slide}
+              isLink={isLink}
+            />
           ))}
         </ul>
 
