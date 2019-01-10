@@ -8,18 +8,14 @@ class JoinUs extends Component {
 
   constructor() {
     super();
-    this.state = {
-      email: ''
-    };
+    this.state = { email: '' };
   }
 
   validate = () => {
     const { email } = this.state;
+    const valid = !/^[a-zA-Z0-9]+(([a-zA-Z0-9]\.)*)+([a-zA-Z0-9]*)+@[a-zA-Z0-9]+(\.+[A-Za-z]+)+$/.test(email);
 
-    if (!/^[a-zA-Z0-9]+(([a-zA-Z0-9]\.)*)+([a-zA-Z0-9]*)+@[a-zA-Z0-9]+(\.+[A-Za-z]+)+$/.test(email)) {
-      return true;
-    }
-    return false;
+    return valid;
   };
 
   handleEmailChange = evt => {
@@ -38,12 +34,10 @@ class JoinUs extends Component {
   };
 
   handleSubmit = () => {
-    if (!this.canBeSubmitted()) {
-      return;
-    }
-    this.setState({
-      email: ''
-    });
+    this.setState({ email: '' });
+    const submit = !this.canBeSubmitted();
+
+    return submit;
   };
 
   render() {
