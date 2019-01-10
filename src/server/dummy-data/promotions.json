@@ -2,15 +2,30 @@
   "slides": [
     {
       "id": 0,
-      "content": "/images/slidesImgs/female.png"
+      "img": "/images/slidesImgs/female.png",
+      "alt": "Shopy",
+      "link": {
+        "href": "http://www.shopy.com.py/",
+        "isOrigin": false
+      }
     },
     {
       "id": 1,
-      "content": "/images/slidesImgs/girl.jpg"
+      "img": "/images/slidesImgs/girl.jpg",
+      "alt": "H&M",
+      "link": {
+        "href": "https://www.hm.com/ua/",
+        "isOrigin": false
+      }
     },
     {
       "id": 2,
-      "content": "/images/slidesImgs/couple.jpg"
+      "img": "/images/slidesImgs/couple.jpg",
+      "alt": "Mafia",
+      "link": {
+        "href": "http://www.themafiastore.com/",
+        "isOrigin": false
+      }
     }
   ]
 }

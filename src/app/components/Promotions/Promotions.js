@@ -6,18 +6,18 @@ import appConfig from '../../../config/appConfig';
 export default class Promotions extends Component {
   constructor(props) {
     super(props);
-    this.state = { promotions: [] };
+    this.state = { slides: [] };
   }
 
   componentDidMount = () => {
     HttpService.get(appConfig.apiResources.promotions).then(myJson => {
-      this.setState({ promotions: myJson.slides });
+      this.setState({ slides: myJson.slides });
     });
   };
 
   render() {
-    const { promotions } = this.state;
+    const { slides } = this.state;
 
-    return <Slider promotions={promotions} />;
+    return <Slider slides={slides} />;
   }
 }

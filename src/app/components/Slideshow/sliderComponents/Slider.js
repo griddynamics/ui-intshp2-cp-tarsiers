@@ -3,7 +3,7 @@ import { SliderLeftArrow, SliderRightArrow } from './Arrows';
 import SliderIndicator from './Indicators';
 import Slide from './Slides';
 
-import '../style/Slider.scss';
+import '../Slider.scss';
 
 export default class Slider extends Component {
   constructor(props) {
@@ -62,10 +62,10 @@ export default class Slider extends Component {
       e.preventDefault();
     }
     const { activeIndex } = this.state;
-    const { promotions } = this.props;
+    const { slides } = this.props;
 
     let index = activeIndex;
-    const slidesLength = promotions.length;
+    const slidesLength = slides.length;
 
     if (index < 1) {
       index = slidesLength;
@@ -81,10 +81,10 @@ export default class Slider extends Component {
       e.preventDefault();
     }
     const { activeIndex } = this.state;
-    const { promotions } = this.props;
+    const { slides } = this.props;
 
     let index = activeIndex;
-    const slidesLength = promotions.length - 1;
+    const slidesLength = slides.length - 1;
 
     if (index === slidesLength) {
       index = -1;
@@ -97,22 +97,23 @@ export default class Slider extends Component {
 
   render() {
     const { isStopped, activeIndex } = this.state;
-    const { promotions } = this.props;
+    const { slides } = this.props;
+    const isLink = true;
 
     return (
       <div className="slider" onMouseEnter={this.deactivate} onMouseLeave={isStopped ? null : this.activate}>
         <SliderLeftArrow onClick={() => this.handleClickLeft()} />
 
         <ul className="slider__slides">
-          {promotions.map((slide, id) => (
-            <Slide key={slide.id} index={id} activeIndex={activeIndex} slide={slide} />
+          {slides.map((slide, id) => (
+            <Slide key={slide.id} index={id} activeIndex={activeIndex} slide={slide} isLink={isLink} />
           ))}
         </ul>
 
         <SliderRightArrow onClick={() => this.handleClickRight()} />
 
         <ul className="slider__indicators">
-          {promotions.map((slide, id) => (
+          {slides.map((slide, id) => (
             <SliderIndicator
               key={slide.id}
               index={id}

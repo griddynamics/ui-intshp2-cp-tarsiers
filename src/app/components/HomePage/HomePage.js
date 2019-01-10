@@ -2,7 +2,7 @@ import React from 'react';
 import Promotions from '../Promotions/Promotions';
 
 const HomePage = () => (
-  <div className="wrapper">
+  <div className="slider__wrapper">
     <Promotions />
   </div>
 );
