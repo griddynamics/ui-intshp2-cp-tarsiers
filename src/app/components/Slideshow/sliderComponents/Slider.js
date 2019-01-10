@@ -8,10 +8,7 @@ import '../Slider.scss';
 export default class Slider extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      activeIndex: 0,
-      isStopped: false
-    };
+    this.state = { activeIndex: 0, isStopped: false };
   }
 
   componentDidMount = () => {
@@ -71,7 +68,7 @@ export default class Slider extends Component {
       index = slidesLength;
     }
 
-    --index;
+    index -= 1;
 
     this.setState({ activeIndex: index });
   };
@@ -90,7 +87,7 @@ export default class Slider extends Component {
       index = -1;
     }
 
-    ++index;
+    index += 1;
 
     this.setState({ activeIndex: index });
   };
@@ -99,9 +96,10 @@ export default class Slider extends Component {
     const { isStopped, activeIndex } = this.state;
     const { slides } = this.props;
     const isLink = true;
+    const stopCheck = isStopped ? null : this.activate;
 
     return (
-      <div className="slider" onMouseEnter={this.deactivate} onMouseLeave={isStopped ? null : this.activate}>
+      <div className="slider" onMouseEnter={this.deactivate} onMouseLeave={stopCheck}>
         <SliderLeftArrow onClick={() => this.handleClickLeft()} />
 
         <ul className="slider__slides">
