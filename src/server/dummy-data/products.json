@@ -1,17 +1,1 @@
-[
-  {
-    "name": "trousers",
-    "manufacturer": "nike",
-    "price": "100"
-  },
-  {
-    "name": "trousers",
-    "manufacturer": "nike",
-    "price": "100"
-  },
-  {
-    "name": "shoes",
-    "manufacturer": "nike",
-    "price": "200"
-  }
-]
+{}

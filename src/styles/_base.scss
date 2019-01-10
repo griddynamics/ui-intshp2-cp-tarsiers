@@ -40,14 +40,15 @@ a {
   }
 }
 
-.main {
-  position: relative;
-  min-height: 500px; // for development
-  background-color: $color-dark;
-  color: $color-white;
-  @include d-flex(center);
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
 
-  & > div {
-    @include abs-center();
-  }
+.main {
+}
+
+.slider__wrapper {
+  width: 100%;
 }

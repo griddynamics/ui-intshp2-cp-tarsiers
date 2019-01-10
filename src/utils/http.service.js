@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+const baseUrl = 'http://localhost:3300';
+
 class HttpService {
   constructor() {
     window.onerror = (message, file, line) => {
@@ -7,37 +9,47 @@ class HttpService {
     };
   }
 
-  get(url, options) {
-    axios
-      .get(url, options)
-      .then(response => response.data)
-      .catch(error => Promise.reject(error));
-  }
+  get(url) {
+    const source = baseUrl + url;
 
-  post(url, data, options) {
     return axios
-      .post(url, data, options)
+      .get(source)
       .then(response => response.data)
       .catch(error => Promise.reject(error));
   }
 
-  put(url, data, options) {
-    axios
-      .put(url, data, options)
-      .then(response => response.data)
-      .catch(error => Promise.reject(error));
-  }
+  post(url, data) {
+    const source = baseUrl + url;
 
-  patch(url, data, options) {
     return axios
-      .patch(url, data, options)
+      .post(source, data)
       .then(response => response.data)
       .catch(error => Promise.reject(error));
   }
 
-  delete(url, options) {
-    axios
-      .delete(url, options)
+  put(url, data) {
+    const source = baseUrl + url;
+
+    return axios
+      .put(source, data)
+      .then(response => response.data)
+      .catch(error => Promise.reject(error));
+  }
+
+  patch(url, data) {
+    const source = baseUrl + url;
+
+    return axios
+      .patch(source, data)
+      .then(response => response.data)
+      .catch(error => Promise.reject(error));
+  }
+
+  delete(url) {
+    const source = baseUrl + url;
+
+    return axios
+      .delete(source)
       .then(response => response.data)
       .catch(error => Promise.reject(error));
   }
@@ -46,5 +58,5 @@ class HttpService {
     return axios.create(options);
   }
 }
-// test comment
+
 export default new HttpService();

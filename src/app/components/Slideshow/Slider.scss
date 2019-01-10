@@ -1,0 +1,92 @@
+@import '../../../styles/mixin';
+@import '../../../styles/variables';
+
+.slider-container {
+  @include d-flex(center, column);
+}
+
+.slider {
+  position: relative;
+}
+
+.slider__slide {
+  display: none;
+
+  &--active {
+    display: block;
+  }
+}
+
+.slider__arrow {
+  position: absolute;
+  top: 50%;
+  color: $color-dark;
+  opacity: 0.75;
+  transform: translateY(-50%);
+  transition: opacity 0.15s cubic-bezier(0.4, 0, 1, 1);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  &--left {
+    left: 32px;
+  }
+
+  &--right {
+    right: 32px;
+  }
+}
+
+.slider__indicators {
+  @include d-flex(center, row);
+
+  position: absolute;
+  bottom: 10%;
+  right: 50%;
+  left: 50%;
+
+  li {
+    &:nth-of-type(n + 2) {
+      margin-left: 9px;
+    }
+  }
+}
+
+.slider__indicator {
+  width: 24px;
+  height: 6px;
+  background-color: $color-dark;
+  outline: none;
+  opacity: 0.15;
+  transition: opacity 0.15s cubic-bezier(0.4, 0, 1, 1);
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  &--active {
+    &,
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .fa-2x {
+    font-size: 1em;
+  }
+
+  .slider__indicator {
+    width: 15px;
+  }
+}
