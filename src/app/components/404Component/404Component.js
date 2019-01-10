@@ -5,11 +5,13 @@ import { TOGGLE_HEADER_AND_FOOTER_VISIBILITY } from '../../actions';
 class My404Component extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
+
     dispatch(TOGGLE_HEADER_AND_FOOTER_VISIBILITY);
   }
 
   componentWillUnmount() {
     const { dispatch } = this.props;
+
     dispatch(TOGGLE_HEADER_AND_FOOTER_VISIBILITY);
   }
 

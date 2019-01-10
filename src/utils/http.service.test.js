@@ -58,6 +58,7 @@ jest.useRealTimers();
 describe('get', () => {
   test('should answer on GET', async () => {
     const spy = jest.spyOn(axios, 'get');
+
     await HttpService.get(testUrl, testConfig);
     expect(spy).toHaveBeenCalled();
   });
@@ -65,6 +66,7 @@ describe('get', () => {
 describe('post', () => {
   test('should answer on POST', async () => {
     const spy = jest.spyOn(HttpService, 'post');
+
     await HttpService.post(testUrl, newObject, testConfig);
     expect(spy).toHaveBeenCalled();
   });
@@ -72,6 +74,7 @@ describe('post', () => {
 describe('delete', () => {
   test('should answer on DELETE', async () => {
     const spy = jest.spyOn(HttpService, 'delete');
+
     await HttpService.delete(`${testUrl}/${testId}`, testConfig);
     expect(spy).toHaveBeenCalled();
   });
@@ -79,6 +82,7 @@ describe('delete', () => {
 describe('patch', () => {
   test('should answer on PATCH', async () => {
     const spy = jest.spyOn(HttpService, 'patch');
+
     await HttpService.patch(`${testUrl}/${testId}`, updatedObject);
     expect(spy).toHaveBeenCalled();
   });
@@ -86,6 +90,7 @@ describe('patch', () => {
 describe('create', () => {
   test('should answer on CREATE', async () => {
     const spy = jest.spyOn(HttpService, 'create');
+
     await HttpService.create(testConfig);
     expect(spy).toHaveBeenCalled();
   });
