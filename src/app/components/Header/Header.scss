@@ -5,19 +5,21 @@
   width: 100%;
   padding-bottom: 62px;
   background-color: $color-white;
+  font-family: $main-font-regular;
 
-  // &-top {
-  //   padding: 10px;
-  //   @include d-flex();
-  //   justify-content: space-between;
+  &-top {
+    padding: 10px;
+    @include d-flex();
+    justify-content: space-between;
 
-  //   span {
-  //     padding-left: 5px;
-  //   }
-  // }
+    span {
+      padding-right: 5px;
+    }
+  }
 
   &-main {
-    padding-top: 50px;
+    padding-top: 20px;
+    position: relative;
     @include d-flex();
   }
 
@@ -27,43 +29,108 @@
 
     & > li {
       display: inline;
-      padding: 0 15px;
+      padding: 0 20px;
     }
   }
+}
 
-  .icons-right i {
-    padding: 0 10px;
-  }
+.icons-right i {
+  padding: 0 10px;
+}
 
-  .navbar {
-    @include d-flex();
-  }
+.navbar {
+  @include d-flex();
+}
+
+.header-nav-right {
+  text-align: right;
 }
 
 img.logo {
   padding: 0 5px;
+  height: auto;
+  width: 120px;
 }
 
-.fas.fa-bars {
-  display: none;
+.menu {
+  display: none !important;
 }
 
-@media screen and (max-width: 750px) {
-  .fas.fa-bars {
-    display: inline-block;
+.header-top {
+  display: flex;
+  padding-top: 20px;
+  justify-content: flex-start;
+
+  & > i::before {
+    color: $color-main;
   }
 
+  i {
+    padding-right: 10px;
+    & > span {
+      font-family: $main-font-regular;
+    }
+  }
+  .icons-right {
+    display: flex;
+    margin-left: auto;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .header-links > li {
+    padding: 5px 15px;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .menu {
+    display: inline-block !important;
+    margin-right: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+  }
   .nav-main {
     display: none;
   }
 
-  .header-nav-right {
+  .nav-toggle {
+    position: absolute;
     width: 100%;
-    text-align: right;
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
   }
 
-  .header-links li {
-    margin-top: 0;
+  .nav-toggle .header-links {
+    text-align: center;
+    display: flex;
+    background-color: #f0f0f0;
+    width: 100%;
+    flex-flow: column nowrap;
+    padding: 10px;
+  }
+
+  .header-top {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    .icons-right {
+      margin: 0;
+      font-size: 20px;
+      padding: 5px 0;
+    }
+    i {
+      padding-top: 5px;
+    }
+  }
+
+  .header-nav-right {
     text-align: right;
+    width: 100%;
   }
 }
