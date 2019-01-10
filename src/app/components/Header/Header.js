@@ -4,82 +4,82 @@ import { Link } from 'react-router-dom';
 
 import './Header.scss';
 import logo from '../../../assets/logo.png';
+import HeaderTop from './HeaderTop';
 
-const Header = props => {
-  const { headerFooterVisibility } = props;
-  const visible = headerFooterVisibility.value;
+class Header extends React.Component {
+  state = {
+    isHidden: true
+  };
 
-  return visible ? (
-    <header className="header">
-      <div className="container">
-        {/* <div className="header-top">
-          <i className="far fa-envelope">
-            <span>info@shopy.com</span>
-          </i>
-          <i className="fas fa-book">
-            <span>453 - 5553 - 996</span>
-          </i>
-          <div className="icons-right">
-            <i className="fab fa-facebook-f" />
-            <i className="fab fa-twitter" />
-            <i className="fab fa-google-plus" />
-            <i className="fab fa-instagram" />
-          </div>
-        </div> */}
-        <div className="header-main">
-          <div className="logo col-2">
-            <img src={logo} alt="logo" className="logo" />
-          </div>
-          <nav className="navbar col-10">
-            <div className="nav-main">
-              <ul className="header-links">
-                <li className="navbar-link">
-                  <Link to="/">Home</Link>
-                </li>
-                <li className="navbar-link">
-                  <Link to="/products">Products</Link>
-                </li>
-                <li className="navbar-link">
-                  <Link to="/deals">Hot Deals</Link>
-                </li>
-                <li className="navbar-link">
-                  <Link to="/about">About</Link>
-                </li>
-                <li className="navbar-link">
-                  <Link to="/contact">Contact</Link>
-                </li>
-              </ul>
+  navToggle = () => {
+    this.setState(prevState => ({ isHidden: !prevState.isHidden }));
+  };
+
+  render() {
+    const { isHidden } = this.state;
+    const { headerFooterVisibility } = this.props;
+    const visible = headerFooterVisibility.value;
+    const navLinks = [
+      { id: 0, val: 'Home', link: '/' },
+      { id: 1, val: 'Products', link: '/products' },
+      { id: 2, val: 'Hot Deals', link: '/hot-deals' },
+      { id: 3, val: 'About', link: '/about' },
+      { id: 4, val: 'Contact', link: '/contacts' }
+    ];
+
+    const navItems = navLinks.map(item => {
+      const { id, link, val } = item;
+
+      return (
+        <li key={id} className="navbar-link">
+          <Link to={link}>{val}</Link>
+        </li>
+      );
+    });
+
+    return visible ? (
+      <header className="header">
+        <div className="container">
+          <HeaderTop />
+          <div className="header-main">
+            <div className="col-2">
+              <Link to="/">
+                <img src={logo} alt="logo" className="logo" />
+              </Link>
             </div>
-            <div className="header-nav-right col-3">
-              <ul className="header-links">
-                <li className="navbar-link">
-                  <a href="/">
-                    <i className="fa fa-search" />
-                  </a>
-                </li>
-                <li className="navbar-link">
-                  <a href="/">
-                    <i className="fa fa-user" />
-                  </a>
-                </li>
-                <li className="navbar-link">
-                  <a href="/">
-                    <i className="fas fa-shopping-basket" />
-                  </a>
-                </li>
-                <li className="navbar-link">
-                  <a href="/">
+            <nav className="navbar col-10">
+              <div className={!isHidden ? 'nav-main' : 'nav-toggle'}>
+                <ul className="header-links">{navItems}</ul>
+              </div>
+              <div className="header-nav-right col-3">
+                <ul className="header-links">
+                  <li className="navbar-link">
+                    <a href="/">
+                      <i className="fa fa-search" />
+                    </a>
+                  </li>
+                  <li className="navbar-link">
+                    <a href="/">
+                      <i className="fa fa-user" />
+                    </a>
+                  </li>
+                  <li className="navbar-link">
+                    <a href="/">
+                      <i className="fas fa-shopping-basket" />
+                    </a>
+                  </li>
+                  <button type="button" className="menu" onClick={this.navToggle}>
                     <i className="fas fa-bars" />
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </nav>
+                  </button>
+                </ul>
+              </div>
+            </nav>
+          </div>
         </div>
-      </div>
-    </header>
-  ) : null;
-};
+      </header>
+    ) : null;
+  }
+}
 
 const mapStateToProps = state => ({ ...state });
 
