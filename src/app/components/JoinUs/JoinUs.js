@@ -13,7 +13,9 @@ class JoinUs extends Component {
 
   validate = () => {
     const { email } = this.state;
-    const valid = !/^[a-zA-Z0-9]+(([a-zA-Z0-9]\.)*)+([a-zA-Z0-9]*)+@[a-zA-Z0-9]+(\.+[A-Za-z]+)+$/.test(email);
+    const valid = !/^[a-zA-Z0-9]+(([a-zA-Z0-9]\.)*)+([a-zA-Z0-9]*)+@[a-zA-Z0-9]+(\.+[A-Za-z]+)+$/.test(
+      email
+    );
 
     return valid;
   };
@@ -23,7 +25,9 @@ class JoinUs extends Component {
   };
 
   showSnackbarHandler = () => {
-    this.snackbarRef.current.openSnackBar('You are registered now :) Have a great shopping!');
+    this.snackbarRef.current.openSnackBar(
+      'You are registered now :) Have a great shopping!'
+    );
   };
 
   canBeSubmitted = () => {
@@ -46,7 +50,7 @@ class JoinUs extends Component {
     const error = '* Please enter valid e-mail: sample@samle.com!';
 
     return (
-      <div className="joinus col-9">
+      <div className="joinus container">
         <div className="joinus-info col-6">
           <h2>NEWS LETTER</h2>
           <p>join us now to get all news and special offers</p>
@@ -63,7 +67,11 @@ class JoinUs extends Component {
                 onChange={this.handleEmailChange}
               />
             </div>
-            <button disabled={isDisabled} onClick={this.showSnackbarHandler} type="submit">
+            <button
+              disabled={isDisabled}
+              onClick={this.showSnackbarHandler}
+              type="submit"
+            >
               join us
             </button>
             <Snackbar ref={this.snackbarRef} />

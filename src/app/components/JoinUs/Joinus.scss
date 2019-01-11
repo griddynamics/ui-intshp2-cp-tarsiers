@@ -1,6 +1,5 @@
 @import '../../../styles/variables';
 @import '../../../styles/mixin';
-@import '../../../styles/fonts';
 
 .joinus {
   width: 100%;
@@ -104,7 +103,7 @@
 @media (min-width: 425px) and (max-width: 779px) {
   .joinus {
     width: 90%;
-    margin: 0 auto;
+    margin: 40px auto;
     padding: 54px 0 24px 0;
     .joinus-info {
       @include d-flex(flex-start, column);

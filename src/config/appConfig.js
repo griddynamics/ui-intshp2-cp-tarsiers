@@ -1,4 +1,29 @@
 const appConfig = {
+  header: {
+    links: [
+      {
+        id: 1,
+        href: 'https://twitter.com/griddynamics',
+        icon: 'fab fa-twitter'
+      },
+      {
+        id: 2,
+        href: 'https://www.linkedin.com/company/grid-dynamics',
+        icon: 'fab fa-linkedin'
+      },
+      {
+        id: 3,
+        href: 'https://www.facebook.com/griddynamics',
+        icon: 'fab fa-facebook'
+      },
+      {
+        id: 4,
+        href: 'https://plus.google.com/115302417170674279390',
+        icon: 'fab fa-google-plus'
+      }
+    ]
+  },
+
   footer: {
     links: [
       {

@@ -18,7 +18,10 @@ const Images = props => {
 
 const Slide = props => {
   const { index, activeIndex, isLink, slide } = props;
-  const setClass = index === activeIndex ? 'slider__slide slider__slide--active' : 'slider__slide';
+  const setClass =
+    index === activeIndex
+      ? 'slider__slide slider__slide--active'
+      : 'slider__slide';
 
   if (!isLink) {
     return (

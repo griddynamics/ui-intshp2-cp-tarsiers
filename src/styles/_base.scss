@@ -12,6 +12,7 @@ img {
 
 body {
   margin: 0;
+  background-color: $color-light-1;
   padding: 0;
   box-sizing: border-box;
   font-size: 16px;
@@ -28,6 +29,16 @@ a {
   &:hover {
     color: $color-main;
   }
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+button {
+  cursor: pointer;
 }
 
 .container {

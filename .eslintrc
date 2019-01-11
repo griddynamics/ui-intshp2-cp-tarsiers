@@ -27,6 +27,7 @@
     "max-len": ["error", { "code": 120 }],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "operator-linebreak": 0,
+    "function-paren-newline": 0,
     "implicit-arrow-linebreak": "off",
     "jsx-a11y/mouse-events-have-key-events": 0,
     "object-curly-newline": [

@@ -6,7 +6,11 @@ const SliderIndicator = props => {
   return (
     <li>
       <button
-        className={index === activeIndex ? 'slider__indicator slider__indicator--active' : 'slider__indicator'}
+        className={
+          index === activeIndex
+            ? 'slider__indicator slider__indicator--active'
+            : 'slider__indicator'
+        }
         onClick={onClick}
         type="button"
       />
