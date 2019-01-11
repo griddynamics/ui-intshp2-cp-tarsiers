@@ -4,6 +4,17 @@
   }
 }
 
-.active {
+.active,
+.highlighted {
   color: $color-main !important;
+}
+
+.separate {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  width: 170px;
+  height: 0;
+  border: 0;
+  border-top: 1px solid #f2f4f7;
 }

@@ -1,0 +1,34 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixin';
+
+.products {
+  background-color: $color-light-1;
+  width: 100%;
+  color: $color-dark;
+  padding: 120px 0;
+  text-align: center;
+
+  &_list {
+    width: 100%;
+    text-align: center;
+    overflow-y: scroll;
+    @include d-flex() {
+      align-items: center;
+    }
+  }
+
+  &_heading {
+    margin-bottom: 80px;
+
+    h2 {
+      font-size: 36px;
+      font-family: $main-font-bold;
+      text-transform: uppercase;
+    }
+
+    p {
+      color: $color-grey-1;
+      line-height: 2;
+    }
+  }
+}

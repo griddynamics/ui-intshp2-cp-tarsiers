@@ -13,8 +13,4 @@ function notFound(req, res) {
   res.status(404).send();
 }
 
-module.exports = {
-  getProducts,
-  getPromotions,
-  notFound
-};
+module.exports = { getProducts, getPromotions, notFound };
