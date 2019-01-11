@@ -15,9 +15,15 @@ export default class Promotions extends Component {
     });
   };
 
+  get isLoaded() {
+    const { slides } = this.state;
+
+    return slides.length;
+  }
+
   render() {
     const { slides } = this.state;
 
-    return <Slider slides={slides} />;
+    return this.isLoaded ? <Slider slides={slides} /> : null;
   }
 }
