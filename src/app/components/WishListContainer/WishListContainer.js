@@ -32,7 +32,9 @@ localStorage.setItem('products', JSON.stringify(products));
 
 const WishListContainer = () => {
   const wishList = JSON.parse(localStorage.getItem('products'));
-  const Items = wishList ? wishList.map(item => <WishListItem key={item.id} {...item} />) : null;
+  const Items = wishList
+    ? wishList.map(item => <WishListItem key={item.id} {...item} />)
+    : null;
 
   return wishList ? (
     <div className="wishlist-container">

@@ -9,7 +9,8 @@
   text-align: center;
 
   &_list {
-    width: 100%;
+    margin: 0 auto;
+    max-width: 1170px;
     text-align: center;
     overflow-y: scroll;
     @include d-flex() {

@@ -1,8 +1,8 @@
 import React from 'react';
-import ProductItem from '../ProductItem/ProductItem';
+import styles from './ProductContainer.module.scss';
+import Carousel from '../Carousel/Carousel';
 import HttpService from '../../../utils/http.service';
 import appConfig from '../../../config/appConfig';
-import styles from './ProductContainer.module.scss';
 
 class ProductContainer extends React.Component {
   title = 'New Arrivals';
@@ -18,9 +18,6 @@ class ProductContainer extends React.Component {
   render() {
     const { products } = this.state;
     const titleArr = this.title.split(' ');
-    const productItems = products.map(product => (
-      <ProductItem key={product.id} {...product} />
-    ));
 
     return (
       <section className={`${styles.products} container`}>
@@ -35,7 +32,9 @@ class ProductContainer extends React.Component {
             industry
           </p>
         </div>
-        <div className={styles.products_list}>{productItems}</div>
+        <div className={styles.products_list}>
+          <Carousel itemsPerView={4} data={products} />
+        </div>
       </section>
     );
   }

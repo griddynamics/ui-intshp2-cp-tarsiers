@@ -3,7 +3,11 @@ import { DisplayFront, DisplayDetails } from './ProductDisplay';
 import styles from './ProductItem.module.scss';
 
 class ProductItem extends Component {
-  state = { showDetails: false };
+  constructor(props) {
+    super(props);
+    this.state = { showDetails: false };
+    this.itemRef = React.createRef();
+  }
 
   showFront = () => this.setState({ showDetails: false });
 
@@ -14,16 +18,24 @@ class ProductItem extends Component {
     console.log(id);
   };
 
+  componentDidMount = () => {
+    const { updateTranslateStep } = this.props;
+
+    updateTranslateStep(this.itemRef.current.offsetWidth + 30);
+  };
+
   render() {
+    const { data } = this.props;
     const { showDetails } = this.state;
     const cardView = showDetails ? (
-      <DisplayDetails {...this.props} clickHandler={this.clickHandle} />
+      <DisplayDetails {...data} clickHandler={this.clickHandle} />
     ) : (
-      <DisplayFront {...this.props} />
+      <DisplayFront {...data} />
     );
 
     return (
       <div
+        ref={this.itemRef}
         className={styles.product_card}
         onMouseEnter={this.showDetails}
         onMouseLeave={this.showFront}
