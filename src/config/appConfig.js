@@ -110,7 +110,8 @@ const appConfig = {
   },
   apiResources: {
     promotions: '/api/promotions',
-    products: '/api/products'
+    products: '/api/products',
+    baner: '/api/baner'
   }
 };
 
