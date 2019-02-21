@@ -25,8 +25,7 @@ a {
   text-decoration: none;
   transition: 0.3s ease;
 
-  &:focus,
-  &:hover {
+  &:focus {
     color: $color-main;
   }
 }
@@ -39,11 +38,13 @@ ul {
 
 button {
   cursor: pointer;
+  outline: none;
+  border: none;
 }
 
 .container {
   width: 100%;
-  max-width: $container-width;
+  max-width: $media-large;
   margin: 0 auto;
   @media screen and(max-width: $media-large) {
     width: 95%;
@@ -51,4 +52,10 @@ button {
   @media screen and(max-width: $media-mobile) {
     width: 90%;
   }
+}
+
+.products_filters {
+  @include d-flex();
+
+  margin-bottom: 120px;
 }
