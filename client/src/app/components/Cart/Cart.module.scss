@@ -1,0 +1,85 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixin';
+
+.block {
+  @include d-flex(space-between, column);
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  align-items: center;
+  padding: 15px 0;
+
+  &:nth-child(n + 1):not(:last-child) {
+    border-bottom: 1px dashed $color-dark;
+  }
+
+  & > * {
+    justify-self: center;
+  }
+
+  h3 {
+    text-align: center;
+  }
+}
+
+.items {
+  background-color: $color-white;
+  margin-bottom: 30px;
+}
+
+.price_total {
+  font-size: 20px;
+  margin: 10px 0;
+  text-align: right;
+}
+
+.order_buttons {
+  @include d-flex(flex-end);
+
+  button {
+    outline: none;
+    transition: 0.4s ease;
+
+    &:first-child {
+      margin-right: 20px;
+    }
+
+    &:hover,
+    &:focus {
+      transform: translateY(-3px);
+      box-shadow: 5px 5px 20px -5px rgba($color-dark, 0.75);
+    }
+
+    &:active {
+      transform: translateY(-1px);
+    }
+  }
+}
+
+.clear_btn {
+  color: $color-white;
+  background-color: $color-main;
+  border: 2px solid $color-main;
+  border-radius: 7px;
+  text-transform: capitalize;
+  font-size: 18px;
+  padding: 7px 12px;
+
+  &:hover {
+    color: $color-main;
+    background-color: $color-white;
+  }
+}
+
+@media screen and (max-width: $media-mobile) {
+  h3 {
+    display: none;
+  }
+
+  .block {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+  }
+}

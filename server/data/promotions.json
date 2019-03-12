@@ -1,0 +1,31 @@
+{
+  "slides": [
+    {
+      "id": 0,
+      "img": "/images/slidesImgs/female.png",
+      "alt": "Shopy",
+      "link": {
+        "href": "http://www.shopy.com.py/",
+        "isOrigin": false
+      }
+    },
+    {
+      "id": 1,
+      "img": "/images/slidesImgs/girl.jpg",
+      "alt": "H&M",
+      "link": {
+        "href": "https://www.hm.com/ua/",
+        "isOrigin": false
+      }
+    },
+    {
+      "id": 2,
+      "img": "/images/slidesImgs/couple.jpg",
+      "alt": "Mafia",
+      "link": {
+        "href": "http://www.themafiastore.com/",
+        "isOrigin": false
+      }
+    }
+  ]
+}
