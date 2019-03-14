@@ -1,0 +1,23 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixin';
+
+.snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: $color-dark;
+  color: $color-white;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 5px;
+  font-size: 1rem;
+  &.show {
+    visibility: visible;
+    -webkit-animation: fadeIn 0.5s, fadeOut 0.5s 3.5s;
+    animation: fadeIn 0.5s, fadeOut 0.5s 3.5s;
+  }
+}

@@ -1,0 +1,39 @@
+@mixin d-flex($justify: space-between, $direction: row) {
+  display: flex;
+  justify-content: $justify;
+  flex-direction: $direction;
+  @content;
+}
+
+@mixin abs-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin p-el(
+  $el,
+  $width,
+  $height,
+  $bg-color: #000,
+  $content: null,
+  $pos: absolute
+) {
+  &::#{$el} {
+    display: block;
+    content: '#{$content}';
+    background: $bg-color;
+    position: $pos;
+    width: $width;
+    height: $height;
+    @content;
+  }
+}
+
+@mixin icon-bg($icon) {
+  background-image: url($icon);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 50% 50%;
+}
