@@ -6,9 +6,12 @@
   grid-template-columns: repeat(8, 1fr);
   align-items: center;
   padding: 15px 0;
+  border-bottom: $border-light;
 
-  &:nth-child(n + 1):not(:last-child) {
-    border-bottom: 1px dashed $color-dark;
+  button {
+    border: none;
+    appearance: none;
+    background-color: transparent;
   }
 
   & > * {
@@ -17,6 +20,7 @@
 
   .image {
     width: 50%;
+    margin: 0 auto;
   }
 
   .title {
@@ -30,8 +34,10 @@
   }
 
   .scrollbar {
-    @include d-flex();
-    overflow-y: scroll;
+    overflow-y: auto;
+    @include d-flex() {
+      align-items: flex-start;
+    }
 
     &::-webkit-scrollbar {
       display: none;
@@ -50,8 +56,15 @@
     color: $color-main;
 
     button {
-      font-size: 18px;
+      font-size: 20px;
       margin: 0 5px;
+      transition: 0.15s;
+
+      &:hover,
+      &:focus {
+        color: inherit;
+        font-weight: bold;
+      }
     }
   }
 
@@ -87,6 +100,7 @@
 .highlightedSize {
   color: $color-main;
   font-size: 18px;
+  font-weight: bold;
   padding: 0 5px;
   text-decoration: none;
   text-transform: uppercase;
@@ -113,8 +127,8 @@
 .active {
   font-size: 0px;
   display: block;
-  width: 15px;
-  height: 15px;
+  min-width: 15px;
+  min-height: 15px;
   border-radius: 50%;
   margin: 2px;
   margin-bottom: 5px;

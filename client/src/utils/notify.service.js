@@ -81,6 +81,22 @@ class NotifyService {
     icon: <i className="far fa-frown" />
   };
 
+  paymentSuccess = {
+    message: 'Payment Success!',
+    type: NOTIFICATION_TYPE_SUCCESS,
+    duration: 2000,
+    canDismiss: true,
+    icon: <i className="fa fa-check" />
+  };
+
+  paymentCancel = {
+    message: 'Payment Canceled!',
+    type: NOTIFICATION_TYPE_WARNING,
+    duration: 2000,
+    canDismiss: true,
+    icon: <i className="fa fa-times" />
+  };
+
   position = {
     topRight: 'TopRight',
     topLeft: 'TopLeft',

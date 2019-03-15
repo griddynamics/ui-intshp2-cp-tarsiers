@@ -7,6 +7,7 @@ import { Notify } from 'react-redux-notify';
 import { productType } from '../../types';
 import appConfig from '../../../config/appConfig';
 import NotifyService from '../../../utils/notify.service';
+import { currencyFormatter } from '../../../utils/priceFormat.service';
 import { addItem, removeItem } from '../../../utils/wishlist.service';
 
 const ViewFrontFull = props => {
@@ -16,7 +17,7 @@ const ViewFrontFull = props => {
     <React.Fragment>
       <img className={styles.full__img} src={src} alt={title} />
       <h4>{title}</h4>
-      <span className="highlighted">{`${price} $`}</span>
+      <span className="highlighted">{currencyFormatter(price)}</span>
     </React.Fragment>
   );
 };
@@ -46,8 +47,6 @@ class ViewDetailsFull extends Component {
 
   toggleWishList = (e, item) => {
     const { wished } = this.props;
-
-    console.log('ed id argument', item);
 
     e.preventDefault();
     const cb = !wished ? this.addItem : this.removeItem;

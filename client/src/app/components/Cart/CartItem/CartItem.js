@@ -139,11 +139,11 @@ class CartItem extends Component {
     return (
       <React.Fragment>
         <button type="button" onClick={this.increment} data-type="increment">
-          +
+          {String.fromCharCode(43)}
         </button>
-        {chosenQuantity}
+        <span>{chosenQuantity}</span>
         <button type="button" onClick={this.decrement} data-type="decrement">
-          -
+          {String.fromCharCode(8722)}
         </button>
       </React.Fragment>
     );
@@ -151,6 +151,11 @@ class CartItem extends Component {
 
   render() {
     const { total } = this.state;
+    const markupFields = {
+      sizes: this.renderSizes(),
+      colors: this.renderColors(),
+      quantity: this.renderQuantity()
+    };
 
     return (
       <React.Fragment>
@@ -159,9 +164,7 @@ class CartItem extends Component {
           item={this.item}
           total={total}
           styles={styles}
-          sizes={this.renderSizes()}
-          colors={this.renderColors()}
-          quantity={this.renderQuantity()}
+          markup={markupFields}
           itemRemove={this.itemRemove}
         />
       </React.Fragment>
