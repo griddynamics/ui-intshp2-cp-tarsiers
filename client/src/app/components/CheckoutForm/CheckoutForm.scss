@@ -1,0 +1,94 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixin';
+
+.checkout-form {
+  color: inherit;
+  text-align: start;
+  letter-spacing: 3px;
+  font-size: 16px;
+  text-transform: uppercase;
+
+  form {
+    margin: 0 auto;
+    display: block;
+    width: 450px;
+    font-size: 14px;
+  }
+
+  label {
+    color: inherit;
+    display: block;
+    margin: 10px 0;
+    position: relative;
+    width: 100%;
+  }
+
+  fieldset {
+    text-align: center;
+    white-space: nowrap;
+    padding: 10px;
+    margin: 0 auto;
+    width: 410px;
+  }
+
+  input {
+    padding: 0 10px;
+    margin: 0 auto;
+    transition: 0.3s;
+    font-size: 16px;
+    outline: none;
+    background-color: $color-light-1;
+    border: none;
+    border-bottom: 2px solid $color-main;
+    display: block;
+    width: 100%;
+    height: 26px;
+  }
+
+  .success {
+    border-bottom: 2px solid $color-success;
+  }
+
+  .tooltip {
+    border-radius: 4px;
+    padding: 2px;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    display: block;
+    width: 100%;
+    top: 110%;
+    height: 42px;
+    background-color: $color-white;
+    z-index: 1;
+    text-align: middle;
+    box-shadow: 0px 0px 10px $color-grey-1;
+    transition: 0.3s;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: -10%;
+      left: 10%;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid $color-white;
+    }
+  }
+
+  .show {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  input:-internal-autofill-selected {
+    background-color: $color-success;
+  }
+
+  .error {
+    background-color: rgba($color-main, 0.5);
+    border-bottom: 2px solid $color-alert;
+  }
+}

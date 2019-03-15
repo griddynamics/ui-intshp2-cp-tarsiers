@@ -1,0 +1,42 @@
+$main-font-bold: 'HarmoniaSansProCyr-bold';
+$main-font-italic: 'HarmoniaSansProCyr-italic';
+$main-font-regular: 'HarmoniaSansProCyr-regular';
+
+$color-main: #ff5912;
+$color-alert: #ff3612;
+$color-white: #fff;
+$color-black: #000;
+$color-dark: #34404b;
+$color-light-1: #f4f6f8;
+$color-light-2: #edeff2;
+$color-grey-1: #495662;
+$color-grey-2: #444;
+
+//info
+$color-warn: #f6bc2d;
+$color-alert: #ff3612;
+$color-success: #28a745;
+
+//paypal
+$paypal-gold: #ffc439;
+$paypal-blue: #009cde;
+$paypal-dark: #003087;
+
+//icons
+$icon-payment1: '../../../assets/icons/creditcards/amex.png';
+$icon-payment2: '../../../assets/icons/creditcards/discover.png';
+$icon-payment3: '../../../assets/icons/creditcards/visa.png';
+$icon-payment4: '../../../assets/icons/creditcards/mastercard.png';
+$icon-payment5: '../../../assets/icons/creditcards/paypal.png';
+
+//media
+$media-large: 1170px;
+$media-medium: 1024px;
+$media-tablet: 768px;
+$media-mobile: 475px;
+$media-smallest: 320px;
+
+$box-shadow1: 0 0 10px rgba($color-dark, 0.2);
+$box-shadow2: 5px 5px 20px -5px rgba($color-dark, 0.75);
+
+$border-light: 2px solid $color-light-2;
